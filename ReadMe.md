@@ -29,3 +29,16 @@
 | moc      | ~/.moc       |
 | vim      | ~/.vim       |
 
+
+
+### 感谢
+
+主要参考下面几位大佬的配置：
+
+
+
+[da-edra](https://github.com/da-edra/dotfiles)
+
+[adi1090x](https://github.com/adi1090x/dots)
+
+[dikiaap](https://github.com/dikiaap/dotfiles)
