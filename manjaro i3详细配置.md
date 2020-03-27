@@ -263,7 +263,7 @@ conky -c ~/.config/conky/system &&       # 修改为你的conkyrc存放位置
 
 `sudo pacman -S variety`  # 壁纸切换软件
 
-### 鼠标主题
+### 光标主题
 
 在i3wm，设置好主题后，主题不正常工作，可以修改以下配置文件
 
