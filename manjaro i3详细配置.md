@@ -1,9 +1,11 @@
-[TOC]
+
 # Manjaro i3详细配置
 
 ## 安装
 
-安装过程略(注意，我使用的是==Manjaro i3 Minimal版==)
+安装过程略   (注意，我使用的是 **Manjaro i3 Minimal版**)
+
+
 
 ## 镜像源
 
@@ -42,6 +44,8 @@ ILoveCandy
 
 `sudo pacman -Syyu`
 
+
+
 ## 修改目录名为英文
 
 1. 首先安装字体(解决系统安装后出现的乱码)
@@ -66,7 +70,11 @@ export LANG=zh_CN
 `vim ~/.Xresources ` # 终端执行此命令
 将 `Xft.dpi`的值修改为 `125`
 
+
+
 ## 软件安装
+
+
 
 ### 开发包
 
@@ -75,6 +83,8 @@ export LANG=zh_CN
 3. `sudo pacman -S python-pip` # 安装 python 模块管理工具
 4. `sudo pacman -S jre8-openjdk`# 有些软件需要
 
+
+
 ### i3相关
 
 ```shell
@@ -82,6 +92,8 @@ sudo pacman -S xfce4-terminal  # 这个好用，自带透明
 sudo pacman -S i3blocks              # i3bar插件
 sudo pacman -S rofi                       # 程序启动器
 ```
+
+
 
 ### 常用
 
@@ -105,6 +117,8 @@ sudo pacman -S gparted                                       # 磁盘管理
 sudo pacman -S gufw                                             # 防火墙
 sudo pacman -S manjaro-settings-manager # manjaro系统设置工具
 ```
+
+
 
 ### CLI工具
 
@@ -131,6 +145,8 @@ sudo pacman -S neofetch fortune-mod cowsay
 sudo pacman -S sl cmatrix
 ```
 
+
+
 ### 输入法
 
 个人喜欢Rime
@@ -149,6 +165,8 @@ export XMODIFIERS=@im=fcitx
 ```
 重启后生效
 
+
+
 ### 游戏
 
 ```shell
@@ -156,7 +174,11 @@ sudo pacman -S warsow  # fps
 yay -S quake3-urbanterror # fps
 ```
 
+
+
 ## 配置
+
+
 
 ### 配置zsh
 
@@ -190,6 +212,8 @@ plugins=(git z zsh-autosuggestions zsh-syntax-highlighting) # 找到 plugins=(gi
 
 `source .zshrc`
 
+
+
 ### 蓝牙配置
 
 `sudo pacman -S bluez bluez-utils blueman` # 安装软件
@@ -215,6 +239,8 @@ sudo systemctl enable bluetooth
 pulseaudio -k                      # 确保没有pulseaudio启动
 pulseaudio --start              # 启动pulseaudio服务
 ```
+
+
 ### tmux
 
 ```shell
@@ -222,6 +248,8 @@ git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
 cp .tmux/.tmux.conf.local .
 ```
+
+
 
 ### conky
 
@@ -232,6 +260,8 @@ cp .tmux/.tmux.conf.local .
 conky -c ~/.config/conky/shortcuts &&  # 修改为你的conkyrc存放位置
 conky -c ~/.config/conky/system &&       # 修改为你的conkyrc存放位置
 ```
+
+
 
 ## 系统美化
 
@@ -244,6 +274,8 @@ conky -c ~/.config/conky/system &&       # 修改为你的conkyrc存放位置
 `yay -S gtk-theme-arc-git` # 主题
 
 `sudo pacman -S variety`  # 壁纸切换软件
+
+
 
 ### grub 美化
 
@@ -266,12 +298,19 @@ https://github.com/vinceliuice/grub2-themes
 sudo ./install.sh -t    # install Tela theme
 sudo ./install.sh -r -t # Remove Tela theme
 ```
+
+
 ## 语言包
 
 打开 `manjaro setting`  安装缺失的语言包
 
 
-## MariDB
+
+## 开发环境配置
+
+
+
+### MariDB
 
 1. 安装
 
@@ -312,7 +351,8 @@ default-character-set = utf8mb4
 `mysql -uroot -p ` # 回车后，输入root用户的密码即可
 
 
-## MongoDB
+
+### MongoDB
 
 1. 安装
 
@@ -338,29 +378,24 @@ sudo systemctl enable mongodb.service # 开机自启
 
 `yay -S datagrip`
 
-## Python
+
+
+### Python
 
 1. 修改 pip 源
 
 `sudo pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/`
 
-2.更新pip
-
-`sudo pip install pip --upgrade `
-
 3. 安装常用模块
 
 ```shell
 yay idle-python3.7                 # IDLE
-sudo pip install yapf              # google 开发的代码格式化工具
-sudo pip install flake8          #语法检查工具
-sudo pip install isort             #导入模块整理工具
+
 sudo pip install PySimpleGUI  # gui模块
 sudo pip install pyecharts pyecharts_snapshot # 图表模块
-sudo pip install pandas matplotlib scipy  # 数据分析
-sudo pip install vim-vint  # vimscript 语法检查工具
-sudo pip install pymongo   # mongodb连接工具
-sudo pip install spyder        # 数据分析IDE
+sudo pipinstall vim-vint  # vimscript 语法检查工具
+sudo conda install pymongo   # mongodb连接工具
+
 ```
 
 
@@ -374,12 +409,12 @@ sudo vim /usr/share/applications/JupyterQtConsole.desktop # JupyterQtConsole.des
 
 输入以下内容
 
- [Desktop Entry]
+[Desktop Entry]
 Encoding=UTF-8
 Name=Jupyter Qtconsole
 GenericName=Jupyter Qtconsole
 Comment=Jupyter Qtconsole
-Exec=/usr/bin/jupyter-qtconsole
+Exec=/opt/anaconda/bin/jupyter-qtconsole
  Icon=/Jupyter
 Terminal=false
 Type=Application
@@ -389,3 +424,167 @@ Categories=IDE;Development
 最后赋予可以执行权限
 
 `sudo chmod +x JupyterQtConsole.desktop `
+
+
+### Anaconda
+
+官网下载安装
+
+配置
+
+```shell
+export PATH=/opt/anaconda/bin/:$PATH # 将这命令加入到.zshrc中
+source .zshrc # 重载.zshrc文件使配置生效
+source /opt/anaconda/bin/activate root # 激活root环境
+```
+
+配置conda软件源
+
+`sudo conda config`  # 生成配置文件
+
+linux下配置文件的位置: ~/.condarc 或 /root/.condarc
+
+复制下面的内容，覆盖到.condarc文件中
+
+```shell
+channels:
+  - defaults
+show_channel_urls: true
+default_channels:
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+custom_channels:
+  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+```
+
+
+
+Jupyter配置
+
+```shell
+sudo conda install -c conda-forge jupyter_contrib_nbextensions
+sudo conda install jupyter_nbextensions_configurator
+jupyter nbextensions_configurator enable # 启用jupyter扩展
+
+jupyter notebook --generate-config #生成配置文件
+
+在其配置文件jupyter_notebook_config.py中，找到
+
+# c.NotebookApp.notebook_dir = ''
+# 要记得删掉#
+c.NotebookApp.notebook_dir = '修改为你的工作目录'
+```
+
+
+
+### VScode
+
+常用插件
+
+| 插件                                                  | 作者              | 描述             |
+| ----------------------------------------------------- | ----------------- | ---------------- |
+| Python                                                | Microsoft         |                  |
+| Python Prview                                         | dongli            | 可视化python运行 |
+| MagicPython                                           | MagicStack Inc    | Python语法高亮   |
+| Visual Studio IntelliCode                             | Microsoft         | 自动补全         |
+| Anaconda Extension Pack                               |                   |                  |
+| indent-rainbow                                        | oderwat           | 缩进指示         |
+| Bracket Pair Colorizer2                               | CoenraadS         | 配对括号高亮     |
+| vscode-icons                                          | VSCode Icons Team | 文件图标         |
+| GitLens                                               | Eric Amodio       |                  |
+| markdown preview enhanced                             |                   |                  |
+| markdownlit                                           |                   |                  |
+| Graphviz(dot) language support for visual studio code | João Pinto        |                  |
+| REST Client                                           | Huachao Mao       |                  |
+| vscode-faker                                          | Budi Irawan       |                  |
+| asciidecorator                                        | helixquar         |                  |
+
+
+
+### Docker
+
+1. 安装 Docker
+
+`sudo pacman -S docker`
+
+2. 配置
+
+```shell
+sudo groupadd docker  # 创建docker组
+sudo gpasswd -a  ${USER} docker # 将当前用户添加到docker组中
+```
+
+3. 切换到docker组
+
+```shell
+sudo systemctl restart docker # 重启 docker 服务
+newgrp docker # 注意，这一步是必须的
+```
+
+4. 测试docker是否安装成功
+
+`sudo docker run hello-world` 
+
+```shell
+启动docker服务
+sudo systemctl start docker
+
+查看docker服务的状态
+sudo systemctl status docker
+
+设置docker开机启动服务
+sudo systemctl enable docker
+sudo systemctl restart docker #  重启docker
+
+Arch下面删除Docker
+
+sudo pacman -Rns docker删除Docker包，同时删除其依赖的包
+
+删除Docker运行过程中产生的镜像、容器等文件。用户生成的配置文件需要手工删除。
+
+sudo rm -rf /var/lib/docker
+```
+
+
+
+### VirtualBox
+
+1. 安装virtualBox,选择内核模块
+2. 安装sudo pacman -S linux-headers5.4
+
+安装扩展包
+`yay -S virtualbox-ext-oracle`
+
+将当前登录用户加入 vboxusers 组
+`sudo gpasswd -a $USER vboxusers`
+
+将VirtualBox模块添加到内核中。或者 直接重启机器
+`sudo modprobe vboxdrv`
+安装增强包
+
+### MPV 配置
+
+安装完成后，先运行一下MPV以便生成配置文件
+核心配置文件: ~/.config/mpv/mpv.conf
+按键配置文件: ~/.config/mpv/input.conf
+
+| 按键       | 功能                                  |
+| ---------- | ------------------------------------- |
+| 右方向键   | 前进 5 秒                             |
+| 左方向键   | 后退 5 秒                             |
+| 上方向键   | 前进 60 秒                            |
+| 下方向键   | 后退 60 秒                            |
+| f          | 切换是否全屏                          |
+| v          | 显示/隐藏字幕                         |
+| T          | 切换是窗口始终置顶                    |
+| s          | 截屏，有字幕                          |
+| S          | 截屏，无字幕                          |
+| o          | 显示进度条与时间，2 秒后消失          |
+| 9 或 /     | 音量 -20 或 *音量 +2                  |
+| Space 或 p | 播放/暂停                             |
+| <>         | 上一个/下一个（播放列表中）           |
+| Enter      | 下一个（播放列表中）                  |
+| q/Q        | 停止播出并退出/保存当前播放进度并退出 |
+| i          | 显示视频的详情参数                    |
+| m          | 静音                                  |
