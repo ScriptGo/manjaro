@@ -28,7 +28,7 @@ alignment = 'top_right', --窗口所在屏幕位置
 gap_x = 20,             --窗口离屏幕左边或右边的距离
 gap_y = 39,             --窗口离屏幕顶部或底部的距离
 
-minimum_width = 200, --最小宽度
+minimum_width = 250, --最小宽度
 minimum_height = 200, --最小高度
 ------------------------------------------------------------------------------------------------------------------------字体
 font = 'Noto Sans CJK SC:size=10',
@@ -60,7 +60,7 @@ imlib_cache_size = 0,
 
 conky.text = [[
 
-${image $HOME/.config/conky/manjaro.png -p 100,0 -s 120x120}
+${image $HOME/.config/conky/manjaro.png -p 55,0 -s 120x120}
 ${voffset 30}
 ${color5}${hr}
 ${color4}系统     : ${color0}${alignr}${execi 10000 awk -F= '/TION/ {print $2}' /etc/lsb-release |sed 's/"//g'}
@@ -95,7 +95,8 @@ ${color7}上传  :  ${color0}${upspeed wlp3s0}/s  ${color2}${alignr}下载  :  $
 
 ${color7}${upspeedgraph wlp3s0 25,90}${alignr}${color4}${downspeedgraph wlp3s0 25,90}
 
-${color7}累计上传   :   ${color0}${totalup wlp3s0}     ${color2}${alignr}累计下载   :   ${color4}${totaldown wlp3s0}
+${color7}累计上传   :   ${alignr}${color0}${totalup wlp3s0}
+${color2}累计下载   :   ${alignr}${color4}${totaldown wlp3s0}
 
 
 
