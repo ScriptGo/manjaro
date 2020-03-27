@@ -80,8 +80,6 @@ export LANG=zh_CN
 ```shell
 sudo pacman -S xfce4-terminal  # 这个好用，自带透明
 sudo pacman -S i3blocks              # i3bar插件
-sudo pacman -S xorg-xbacklight
-
 sudo pacman -S rofi                       # 程序启动器
 ```
 
