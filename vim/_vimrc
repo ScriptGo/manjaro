@@ -1,0 +1,38 @@
+"全局配置 {{{
+
+set nocompatible        ""关闭兼容模式
+set shortmess=atI       ""不显示那个援助乌干达儿童的提示
+
+"编码配置
+
+set encoding=utf-8        ""内部编码
+set termencoding=utf-8    ""终端编码
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1 ""自动识别文件编码
+set fileencoding=utf-8    ""编辑及保存文件编码
+
+"}}}
+
+
+"定义配置文件目录 {{{
+
+if has('win64')
+   let $VIMCONFIG=$HOME.'\vimfiles\'
+   let s:config = $VIMCONFIG.'config'
+else
+   let $VIMCONFIG=$HOME.'/.vim'
+   let s:config = $VIMCONFIG.'/config'
+endif
+
+""定义LoadScript命令加载配置文件
+
+command! -nargs=1 LoadScript exec 'source '.s:config.'/'.'<args>'   
+
+"加载配置文件
+
+LoadScript base.vim          "加载基础配置
+LoadScript map.vim           "加载按键映射配置
+LoadScript plugin.vim        "加载插件列表
+LoadScript config.vim        "加载插件配置
+
+
+"}}}

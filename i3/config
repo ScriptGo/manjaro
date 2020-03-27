@@ -1,0 +1,378 @@
+# i3 config file (v4)
+# Manjaro i3 minimal
+
+# Mod键配置
+# Mod4=<Super>
+# Mod1=<Alt>
+
+set $mod Mod4
+set $mod1 Mod1
+
+# 字体
+font pango: Noto Sans CJK SC Regular 12
+
+############################# 主题相关 ###########################################
+# Set some nice colors      border     background   text       indicator
+client.focused              #6272a4    #6272a4      #f8f8f2    #6272a4
+client.unfocused            #282A36    #282A36      #8be9fd    #282A36
+client.focused_inactive     #282A36    #282A36      #50fa7b    #282A36
+client.urgent               #282A36    #282A36      #ff79c6    #282A36
+client.placeholder          #282A36    #282A36      #8be9fd    #282A36
+
+client.background           #ffffff
+
+################################窗口配置#########################################
+
+# 窗口边框类型 : normal(正常)，none(无边框)，pixel(自定义边框大小)
+# normal除了绘制窗口边框以外，还会显示窗口的标题栏
+# none 选项不显示边框
+# pixel选项会在窗口四周绘制边框
+# <px>用来指定边框大小
+# default_border normal <px>|none|pixel <px>
+# default_floating_border normal<px>|none|pixel <px>
+
+# 普通窗口的默认边框类型
+default_border none
+
+# 浮动窗口的默认边框类型
+default_floating_border normal 2
+
+# 隐藏屏幕边缘附近的边框
+hide_edge_borders both
+
+#  窗口布局(默认平铺)
+# default:平铺, stacking:堆叠, tabbed:标签
+# workspace_layout default|stacking|tabbed
+
+# 切换窗口布局
+bindsym $mod1+s   layout stacking
+bindsym $mod1+t   layout tabbed
+bindsym $mod1+Tab layout toggle split
+
+ # 自动切换到新打开的窗口
+focus_on_window_activation smart
+
+# 全屏模式下弹出窗口配置
+popup_during_fullscreen smart
+
+# 焦点跟随鼠标移动
+focus_follows_mouse yes
+
+# 新建窗口的分割方向
+bindsym $mod+v split vertical
+bindsym $mod+h split horizontal
+
+# 焦点切换到父窗口
+bindsym $mod+p focus parent
+
+# 焦点切换回子窗口
+bindsym $mod+Shift+p focus child
+
+ # 窗口全屏
+bindsym $mod+f fullscreen toggle
+
+# 关闭窗口
+bindsym $mod+q kill
+
+# 移动窗口
+# Left  移动当前窗口到左侧
+# Down  移动当前窗口到下侧
+# Up    移动当前窗口到上侧
+# Right 移动当前窗口到右侧
+
+bindsym $mod+Left  move left
+bindsym $mod+Down  move down
+bindsym $mod+Up    move up
+bindsym $mod+Right move right
+
+# 窗口聚焦
+# Left  聚焦到左边的窗口
+# Down  聚焦到下边的窗口
+# Up    聚焦到上边的窗口
+# Right 聚焦到右边的窗口
+
+bindsym $mod1+Left  focus left
+bindsym $mod1+Down  focus down
+bindsym $mod1+Up    focus up
+bindsym $mod1+Right focus right
+
+
+# 调整窗口大小
+
+bindsym $mod+s mode "resize"
+mode "resize" {
+
+# h窗口宽度减少15个像素
+# j窗口高度增加15个像素
+# k窗口高度减少15个像素
+# l窗口宽度增加15个像素
+
+bindsym h resize shrink width  15 px or 15 ppt
+bindsym j resize grow   height 15 px or 15 ppt
+bindsym k resize shrink height 15 px or 15 ppt
+bindsym l resize grow   width  15 px or 15 ppt
+
+# 退出调整模式 : Enter or Escape
+bindsym Return mode "default"
+bindsym Escape mode "default"
+
+}
+
+################################################################################
+###   浮动窗口
+
+# 限制浮动窗口大小
+# 值为 -1x -1 时窗口的最大尺寸不受限制
+# 未定义或指定为0x0，则i3将使用默认值来设置最大尺寸
+
+# floating_minimum_size <width> x <height>
+# floating_maximum_size <width> x <height>
+
+# 调整浮动窗口
+# 按下 mod 的同时按下左键不放，移动浮动窗口
+# 按下 mod 的同时按下右键不放，调整悬浮窗口大小
+# 按下 mod 的同时按下Shift键的同时再按下鼠标右键不放，可以按比例调整浮动窗口大小
+
+floating_modifier $mod
+
+# 指定类型的窗口统一设置成浮动类型
+for_window [window_role="pop-up|bubble|task_dialog|Preferences"] floating enable
+for_window [window_type="dialog|menu"] floating enable
+
+# 以下程序使用浮动窗口模式
+
+for_window [class="Xfce4-terminal"] floating enable
+for_window [class="mpv"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class ="Blueman-manager"] floating enable
+for_window [class="jupyter-qtconsole"] floating enable
+for_window [class="netease-cloud-music"] floating enable
+for_window [class="Gimp"] floating enable
+for_window [class="Xarchiver"] floating enable
+for_window [class="GParted"] floating enable
+for_window [class="Lxappearance"] floating enable
+for_window [class="Manjaro Settings Manager"] floating enable
+for_window [class="Pamac-manager"] floating enable
+for_window [class="Pamac-updater"] floating enable
+for_window [title="alsamixer"] floating enable border pixel 1
+for_window [class="(?i)virtualbox"] floating enable border normal
+
+# 在平铺窗口/浮动窗口切换
+bindsym $mod+Shift+space floating toggle
+
+# 在平铺/浮动窗口之间更改焦点
+bindsym $mod+space focus mode_toggle
+
+# 粘滞浮动窗口
+bindsym $mod+g fullscreen disable; floating enable; resize set 640 px 640 px; sticky enable
+
+################################################################################
+
+# 暂存窗口(额外的可隐藏浮动窗口，取消浮动还原成普通窗口)
+ # 转换普通窗口为暂存窗口
+bindsym $mod+Shift+minus move scratchpad
+
+# 呼出/隐藏暂存窗口
+bindsym $mod+minus scratchpad show
+
+################################################################################
+### WorkSpace
+################################################################################
+
+# 将工作区放到指定屏幕上
+# workspace <workspace> output <output>
+
+# 工作区的默认拆分方向
+# 默认情况下，宽屏幕显示器（宽度大于高度）将水平拆分屏幕，而高度大于宽度的显示器将垂直拆分屏幕
+
+# default_orientation horizontal|vertical|auto
+
+# switch to workspace with urgent window automatically
+for_window [urgent=latest] focus
+
+# 自定义工作区名称
+
+set $WS1   "1:"
+set $WS2   "2:"
+set $WS3   "3:"
+set $WS4   "4:"
+set $WS5   "5:"
+set $WS6   "6:"
+
+# 自动切换工作区
+workspace_auto_back_and_forth yes
+
+# 快速切换到指定的工作区
+
+bindsym $mod+1 workspace $WS1
+bindsym $mod+2 workspace $WS2
+bindsym $mod+3 workspace $WS3
+bindsym $mod+4 workspace $WS4
+bindsym $mod+5 workspace $WS5
+bindsym $mod+6 workspace $WS6
+
+# 将当前活动窗口移动到指定的工作区
+
+bindsym $mod+Ctrl+1	move container to workspace $WS1
+bindsym $mod+Ctrl+2	move container to workspace $WS2
+bindsym $mod+Ctrl+3	move container to workspace $WS3
+bindsym $mod+Ctrl+4	move container to workspace $WS4
+bindsym $mod+Ctrl+5	move container to workspace $WS5
+bindsym $mod+Ctrl+6	move container to workspace $WS6
+
+# Move to workspace with focused container
+
+bindsym $mod+Shift+1 move container to workspace $ws1; workspace $WS1
+bindsym $mod+Shift+2 move container to workspace $ws2; workspace $WS2
+bindsym $mod+Shift+3 move container to workspace $ws3; workspace $WS3
+bindsym $mod+Shift+4 move container to workspace $ws4; workspace $WS4
+bindsym $mod+Shift+5 move container to workspace $ws5; workspace $WS5
+bindsym $mod+Shift+6 move container to workspace $ws6; workspace $WS6
+
+# 自动将窗口放置到指定工作区
+# 要获取类和实例，可以使用xprop。单击窗口后，可能会有这样子的输出
+# WM_CLASS(STRING) = "irssi", "URxvt"
+# 其中“irssi”是实例，”URxvt“是类
+
+assign [class="(?i)Chrome"] $WS4
+assign [class="netease-cloud-music"] $WS5
+assign [class="(?i)mpv"] $WS5
+assign [title="htop"] $WS6
+
+################################################################################
+### 快速启动
+################################################################################
+
+bindsym $mod1 + d exec --no-startup-id rofi -show drun
+bindsym $mod+Tab exec --no-startup-id rofi -show window
+
+bindsym $mod+z exec --no-startup-id morc_menu
+bindsym $mod+r exec --no-startup-id xfce4-terminal
+bindsym $mod+d exec --no-startup-id doublecmd
+
+bindsym $mod+e exec --no-startup-id pcmanfm
+bindsym $mod+F3 exec --no-startup-id pcmanfm_pkexec
+bindsym $mod+F5 exec xfce4-terminal -e 'mocp'
+
+bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+bindsym Print exec --no-startup-id i3-scrot
+bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
+bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
+bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+
+################################################################################
+### 开机自启
+################################################################################
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id pkill compton; compton -b
+exec --no-startup-id nm-applet
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id pamac-tray
+exec --no-startup-id blueman-applet
+
+# exec --no-startup-id clipit
+# exec_always --no-startup-id sbxkb
+# exec_always --no-startup-id ff-theme-util
+
+exec --no-startup-id start_conky_maia
+exec_always --no-startup-id fix_xcursor
+
+exec_always --no-startup-id fcitx
+exec --no-startup-id variety
+
+# 定时启动
+# 自动锁屏
+exec_always --no-startup-id xautolock -time 10 -locker 'i3lock -i ~/Pictures/Wallpapers/lock.png'&
+
+# 闲置900秒后黑屏
+exec_always --no-startup-id xset dpms 900
+
+################################################################################
+### 系统设置
+################################################################################
+#### 声音
+################################################################################################
+exec -no-startup-id pulseaudio --start
+
+# 鼠标左键/右键切换输出设备
+# 鼠标滚轮增大/减小音量
+# 鼠标中间静音
+
+bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
+################################################################################################
+
+# 重新加载i3配置文件
+bindsym $mod+Shift+c reload
+
+# 重启i3(保留布局/会话，用于升级i3)
+bindsym $mod+Shift+r restart
+
+# 退出i3
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m '是否确定退出i3? 这将导致所有工作窗口被关闭.' -b '确定' 'i3-msg exit'"
+
+# 锁屏
+bindsym $mod+9 exec --no-startup-id i3lock -i ~/Pictures/Wallpapers/lock.png
+
+#系统命令
+bindsym $mod+0 mode "$mode_system"
+set $mode_system 系统 : 注销(L) 🔶 重启(R) 🔴 关机(S) 🔷 取消(Esc)
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit logout, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym s exec --no-startup-id i3exit shutdown, mode "default"
+    bindsym Escape mode "default"
+}
+
+################################################################################
+### i3bar
+################################################################################
+
+bar {
+
+i3bar_command i3bar
+status_command i3blocks
+position top
+
+# please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+# tray_output primary
+# tray_output eDP1
+# 禁止systemtray
+# tray_output none
+
+bindsym button4 nop
+bindsym button5 nop
+
+font pango: FuraCode Nerd Font Regular 12
+
+# 拆解工作区名(隐藏前面的1:2:3:……)
+strip_workspace_numbers yes
+
+    colors {
+
+background #222222
+statusline #dddddd
+separator #666666
+
+#                    border   backgr     text
+focused_workspace   #0088CC   #0088CC    #ffffff   #292F34
+active_workspace    #333333   #333333    #ffffff   #FDF6E3
+inactive_workspace  #333333   #333333    #888888   #EEE8D5
+urgent_workspace    #2f343a   #900000    #ffffff   #E5201D
+
+    }
+}
+
+# hide/unhide i3status bar
+bindsym $mod+m bar mode toggle
+
+################################################################################
+### i3-gaps
+################################################################################
+gaps inner 6
+gaps outer 1
+
+smart_gaps on
+smart_borders on
+

@@ -1,0 +1,103 @@
+conky.config = {
+------------------------------------------------------------------------------------------------------------------------窗口
+own_window = true,  --创建窗口
+own_window_type = 'override', --窗口类型(Gnome修改为 'desktop')
+own_window_class = 'Conky',
+own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+
+own_window_argb_visual = true, --启用透明
+own_window_transparent = true, --透明
+background = true, --后台运行
+double_buffer = true, --启用双重缓冲，消除闪烁
+
+------------------------------------------------------------------------------------------------------------------------边框
+draw_borders = false,
+draw_graph_borders = false,
+draw_outline = false,
+draw_shades = false,  
+
+no_buffers = true,
+out_to_console = false,
+out_to_stderr = false,
+stippled_borders = 0,
+
+------------------------------------------------------------------------------------------------------------------------位置
+alignment = 'top_left', --窗口所在屏幕位置
+gap_x = 20,             --窗口离屏幕左边或右边的距离
+gap_y = 55,             --窗口离屏幕顶部或底部的距离
+
+------------------------------------------------------------------------------------------------------------------------字体
+font = 'Noto Sans CJK SC:size=8',
+uppercase = false,
+use_spacer = 'none',
+
+text_buffer_size = 2048,
+use_xft = true,
+override_utf8_locale = true,
+
+------------------------------------------------------------------------------------------------------------------------颜色
+color0 = 'FF00FF',	--洋红色
+color1 = '7CFC00', --草坪绿
+color2 = 'FFFF00', --纯黄色
+color3 = '0000FF', --纯蓝色
+color4 = '00FF00', --酸橙色
+color5 = 'FFFFFF', --纯白色
+color6 = '000000', --纯黑色
+
+------------------------------------------------------------------------------------------------------------------------其他
+cpu_avg_samples = 2,
+net_avg_samples = 2,
+format_human_readable = true,
+extra_newline = false,
+update_interval = 1.0,
+imlib_cache_size = 0,
+
+}
+
+conky.text = [[
+
+${color1}快速启动
+${color5}${stippled_hr}
+${color2}Alt + d : ${color1}${alignr}rofi
+${color2}Win + Tab : ${color1}${alignr}切换窗口
+${color2}Win + z : ${color1}${alignr}morc_menu
+${color2}Win + r : ${color1}${alignr}xfce4-terminal
+${color2}Win + d : ${color1}${alignr}double commander
+${color2}Win + e : ${color1}${alignr}pcmanfm
+${color2}Win + F3 : ${color1}${alignr}pcmanfm_pkexec
+${color2}Win + F5 : ${color1}${alignr}mocp
+${color5}${stippled_hr}
+
+${color1}窗口
+${color5}${stippled_hr}
+${color2}Alt + s : ${color1}${alignr}堆叠化窗口
+${color2}Alt + t : ${color1}${alignr}标签化窗口
+${color2}Alt + Tab :${color1}${alignr}
+${color2}Win + h/v : ${color1}${alignr}水平/垂直窗口
+${color2}Win + f : ${color1}${alignr}窗口/全屏
+${color2}Win + q : ${color1}${alignr}关闭窗口
+${color2}Win + s : ${color1}${alignr}窗口调整模式
+${color2}Win + Shift + - : ${color1}${alignr}暂存窗口
+${color2}Win + - : ${color1}${alignr}呼出/隐藏暂存窗口
+
+${color5}${stippled_hr}
+
+${color1}工作区${font}
+${color5}${stippled_hr}
+${color2}Win + 数字(1 - 6) :  ${color1}${alignr}切换工作区
+${color5}${stippled_hr}
+
+${color1}系统
+${color5}${stippled_hr}
+${color2}Win + m : ${color1}${alignr}隐藏/显示i3bar
+
+${color2}Win + Shift + c : ${color1}${alignr}重载i3配置文件
+${color2}Win + Shift + r : ${color1}${alignr}重启i3
+${color2}Win + Shift + e : ${color1}${alignr}退出i3
+
+${color2}Win + 9 : ${color1}${alignr}锁屏
+${color2}Win + 0 : ${color1}${alignr}系统关机操作
+
+${color2}Win -> Mod
+${color2}Alt -> Mod1
+]]
