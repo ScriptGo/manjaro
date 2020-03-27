@@ -58,6 +58,14 @@ imlib_cache_size = 0,
 
 conky.text = [[
 
+${image $HOME/.config/conky/manjaro.png -p 65,2 -s 120x120}
+${voffset 50}
+${color5}${hr}
+${color4}系统     : ${color0}${alignr}${execi 10000 awk -F= '/TION/ {print $2}' /etc/lsb-release |sed 's/"//g'}
+${color4}内核     : ${color0}${alignr}$kernel
+${color4}开机     : ${color0}${alignr}$uptime
+${color5}${hr}
+
 ${color2}CPU${alignr}${color7}$CPU%
 ${color5}${hr}
 ${color1}${top name 1}${alignr}${color0}${top cpu 1}%
@@ -66,7 +74,6 @@ ${color1}${top name 3}${alignr}${color0}${top cpu 3}%
 ${color1}${top name 4}${alignr}${color0}${top cpu 4}%
 ${color1}${top name 5}${alignr}${color0}${top cpu 5}%
 ${color1}${top name 6}${alignr}${color0}${top cpu 6}%
-${color1}${top name 7}${alignr}${color0}${top cpu 7}%
 ${color5}${hr}
 
 ${color2}RAM ${alignr}${color7}${mem}
@@ -77,19 +84,15 @@ ${color0}${top_mem name 3} ${alignr}${color4}${top_mem mem_res 3}
 ${color0}${top_mem name 4} ${alignr}${color4}${top_mem mem_res 4}
 ${color0}${top_mem name 5} ${alignr}${color4}${top_mem mem_res 5}
 ${color0}${top_mem name 6} ${alignr}${color4}${top_mem mem_res 6}
-${color0}${top_mem name 7} ${alignr}${color4}${top_mem mem_res 7}
 ${color5}${hr}
 
-${color2}WLAN
+${color2}NET
 ${color5}${hr}
-${color1}IP : ${addrs wlp3s0}
-${color7}上传 :  ${color0}${upspeed wlp3s0}/s
-${color2}下载 :  ${color1}${downspeed wlp3s0}/s
-${color5}${hr}
+${color1}SSID  : ${color2}${alignr}${wireless_essid wlp3s0}
+${color1}IP       : ${color2}${alignr}${addrs wlp3s0}
 
-${color2}LAN
-${color5}${hr}
-${color1}IP : ${addrs enp4s0}
-${color7}上传 :  ${color0}${upspeed enp4s0}/s
-${color2}下载 :  ${color1}${downspeed enp4s0}/s
+${color7}上传    :  ${color0}${upspeed wlp3s0}/s   ${alignr}${color7}${upspeedgraph wlp3s0 20,80}
+${color2}下载    :  ${color4}${downspeed wlp3s0}/s ${alignr}${color4}${downspeedgraph wlp3s0 20,80}
+
+
 ]]
