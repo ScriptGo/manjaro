@@ -267,8 +267,6 @@ conky -c ~/.config/conky/system &&       # 修改为你的conkyrc存放位置
 
 在i3wm，设置好主题后，主题不正常工作，可以修改以下配置文件
 
-**就算修改了以下文件，在某些应用仍然不能正常工作**
-
 ```shell
 1. 编辑  ~/.Xresources 文件中添加以下这一行即可:
 
@@ -290,6 +288,8 @@ gtk-cursor-theme-name="Azenis"
 gtk-cursor-theme-name=Azenis
 ```
 
+**就算修改了以下文件，在某些应用仍然不能正常工作**
+
 
 
 ### grub 美化
@@ -300,19 +300,22 @@ GRUB_TIMEOUT_STYLE=hide # 修改为 menu，开机显示grub引导画面
 GRUB_TIMEOUT=15 # 修改为 5
 GRUB_DISABLE_RECOVERY=true # 修改为 false
 ```
-==最后更新grub，别忘记!!!==
+**最后更新grub，别忘记!!!**
 
 `sudo update-grub`
 
-==也可以使用别人写好的脚本美化，前提是要执行上面的命令==
+
+
+**也可以使用别人写好的脚本美化**
 
 ```shell
 从下面的链接下载文件，然后执行，并重启即可
 https://github.com/vinceliuice/grub2-themes
 
-sudo ./install.sh -t    # install Tela theme
-sudo ./install.sh -r -t # Remove Tela theme
+sudo ./install.sh -t      # install Tela theme
+sudo ./install.sh -r -t  # Remove Tela theme
 ```
+
 
 
 ## 语言包
