@@ -68,32 +68,28 @@ export LANG=zh_CN
 3. 修改DPI
 
 `vim ~/.Xresources ` # 终端执行此命令
+
 将 `Xft.dpi`的值修改为 `125`
+
+然后执行 `xrdb ~/.Xresources &`
 
 
 
 ## 软件安装
 
-
-
 ### 开发包
 
 1. `sudo pacman -S --needed base-devel` # 必须安装,不然 makepkg会提示错误
 2. `sudo pacman -S yay` # 从 Aur 中安装软件
-3. `sudo pacman -S python-pip` # 安装 python 模块管理工具
-4. `sudo pacman -S jre8-openjdk`# 有些软件需要
-
-
+3. `sudo pacman -S jre8-openjdk`# 有些软件需要
 
 ### i3相关
 
 ```shell
-sudo pacman -S xfce4-terminal  # 这个好用，自带透明
-sudo pacman -S i3blocks              # i3bar插件
-sudo pacman -S rofi                       # 程序启动器
+sudo pacman -S xfce4-terminal
+sudo pacman -S i3blocks
+sudo pacman -S rofi
 ```
-
-
 
 ### 常用
 
@@ -106,7 +102,7 @@ sudo pacman -S android-tools android-udev # 刷机用的
 sudo pacman -S simplescreenrecorder peek flameshot # 录屏、截图
 sudo pacman -S screenkey                                     # 按键回显
 sudo pacman -S doublecmd-gtk2                       # 资源管理
-sudo pacman -S typora gvim visual-studio-code-bin                                 # 编辑器
+sudo pacman -S typora gvim visual-studio-code-bin    # 编辑器
 sudo pacman -S baidunetdisk-bin                      # 百度网盘
 sudo pacman -S transmission-gtk                      # 下载
 sudo pacman -S unrar xarchiver gtkhash        # 压缩与校验
@@ -117,8 +113,6 @@ sudo pacman -S gparted                                       # 磁盘管理
 sudo pacman -S gufw                                             # 防火墙
 sudo pacman -S manjaro-settings-manager # manjaro系统设置工具
 ```
-
-
 
 ### CLI工具
 
@@ -139,13 +133,12 @@ sudo pacman -S graphviz # 流程图制作工具包
 sudo pacman -S tldr fd bat exa jq
 ```
 
-有意思的终端命令
+### 有意思的终端命令
+
 ```shell
 sudo pacman -S neofetch fortune-mod cowsay
 sudo pacman -S sl cmatrix
 ```
-
-
 
 ### 输入法
 
@@ -155,7 +148,9 @@ sudo pacman -S fcitx-rime
 sudo pacman -S fcitx-im
 sudo pacman -S fcitx-configtool
 ```
+
 配置
+
 ```shell
 vim ~/.xprofile # 编辑 .xprofile 文件
 在文件中加入以下代码:
@@ -165,20 +160,14 @@ export XMODIFIERS=@im=fcitx
 ```
 重启后生效
 
-
-
 ### 游戏
 
 ```shell
-sudo pacman -S warsow  # fps
-yay -S quake3-urbanterror # fps
+sudo pacman -S warsow
+yay -S quake3-urbanterror
 ```
 
-
-
 ## 配置
-
-
 
 ### 配置zsh
 
@@ -205,14 +194,13 @@ yay -S quake3-urbanterror # fps
 ```shell
 修改 ZSH_THEME 为 ZSH_THEME='powerlevel10k/powerlevel10k'
 将下面内容加入文件：
-bindkey ',' autosuggest-accept #使用逗号补全
 plugins=(git z zsh-autosuggestions zsh-syntax-highlighting) # 找到 plugins=(git)修改为前面的内容
+bindkey ',' autosuggest-accept #使用逗号补全
 ```
+
 5. 重载文件
 
 `source .zshrc`
-
-
 
 ### 蓝牙配置
 
@@ -275,6 +263,33 @@ conky -c ~/.config/conky/system &&       # 修改为你的conkyrc存放位置
 
 `sudo pacman -S variety`  # 壁纸切换软件
 
+### 鼠标主题
+
+在i3wm，设置好主题后，主题不正常工作，可以修改以下配置文件
+
+**就算修改了以下文件，在某些应用仍然不能正常工作**
+
+```shell
+1. 编辑  ~/.Xresources 文件中添加以下这一行即可:
+
+Xcursor.theme: Azenis
+
+如果有问题，可以在 ~/.xinitrc 或 .xprofile 加入下面命令:
+
+xrdb ~/.Xresources &
+
+2. 编辑 ~/.icons/default/index.theme 文件：
+
+[icon theme] 
+Inherits=Azenis
+
+3. 编辑 ~/.gtkrc-2.0 文件：
+gtk-cursor-theme-name="Azenis"
+
+4. 编辑 ~/.config/gtk-3.0/settings.ini 文件：
+gtk-cursor-theme-name=Azenis
+```
+
 
 
 ### grub 美化
@@ -307,8 +322,6 @@ sudo ./install.sh -r -t # Remove Tela theme
 
 
 ## 开发环境配置
-
-
 
 ### MariDB
 
@@ -380,65 +393,19 @@ sudo systemctl enable mongodb.service # 开机自启
 
 
 
-### Python
-
-1. 修改 pip 源
-
-`sudo pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/`
-
-3. 安装常用模块
-
-```shell
-yay idle-python3.7                 # IDLE
-
-sudo pip install PySimpleGUI  # gui模块
-sudo pip install pyecharts pyecharts_snapshot # 图表模块
-sudo pipinstall vim-vint  # vimscript 语法检查工具
-sudo conda install pymongo   # mongodb连接工具
-
-```
-
-
-
-### Jupyter QtConsole
-
-为Jupyter QtConsole创建启动器
-
-```shell
-sudo vim /usr/share/applications/JupyterQtConsole.desktop # JupyterQtConsole.desktop
-
-输入以下内容
-
-[Desktop Entry]
-Encoding=UTF-8
-Name=Jupyter Qtconsole
-GenericName=Jupyter Qtconsole
-Comment=Jupyter Qtconsole
-Exec=/opt/anaconda/bin/jupyter-qtconsole
- Icon=/Jupyter
-Terminal=false
-Type=Application
-Categories=IDE;Development
-```
-
-最后赋予可以执行权限
-
-`sudo chmod +x JupyterQtConsole.desktop `
-
-
 ### Anaconda
 
-官网下载安装
+1. 安装
+`sudo pacman -S anaconda`
 
-配置
-
+2. 配置
 ```shell
 export PATH=/opt/anaconda/bin/:$PATH # 将这命令加入到.zshrc中
 source .zshrc # 重载.zshrc文件使配置生效
 source /opt/anaconda/bin/activate root # 激活root环境
 ```
 
-配置conda软件源
+3. 配置conda软件源
 
 `sudo conda config`  # 生成配置文件
 
@@ -458,15 +425,18 @@ custom_channels:
   conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
 ```
 
+4. 更新包
+`sudo conda update --all`
 
 
-Jupyter配置
+
+### Jupyter
 
 ```shell
 sudo conda install -c conda-forge jupyter_contrib_nbextensions
 sudo conda install jupyter_nbextensions_configurator
-jupyter nbextensions_configurator enable # 启用jupyter扩展
 
+jupyter nbextensions_configurator enable # 启用jupyter扩展
 jupyter notebook --generate-config #生成配置文件
 
 在其配置文件jupyter_notebook_config.py中，找到
@@ -477,6 +447,46 @@ c.NotebookApp.notebook_dir = '修改为你的工作目录'
 ```
 
 
+
+为 Jupyter QtConsole 创建启动器
+
+首先切换到 ` /usr/share/applications/`，然后执行下面到操作
+
+```shell
+sudo vim JupyterQtConsole.desktop # 创建JupyterQtConsole.desktop
+输入以下内容
+[Desktop Entry]
+Encoding=UTF-8
+Name=Jupyter Qtconsole
+GenericName=Jupyter Qtconsole
+Comment=Jupyter Qtconsole
+Exec=/opt/anaconda/bin/jupyter-qtconsole
+ Icon=/Jupyter
+Terminal=false
+Type=Application
+Categories=IDE;Development
+```
+最后赋予可以执行权限
+
+`sudo chmod +x JupyterQtConsole.desktop `
+
+### Python
+
+1. 修改 pip 源
+
+`sudo pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/`
+
+2. 安装模块
+
+```shell
+sudo pip install PySimpleGUI  # gui模块
+sudo pip install pyecharts pyecharts_snapshot # 图表模块
+sudo pip install vim-vint  # vimscript 语法检查工具
+sudo conda install pymongo   # mongodb连接工具
+```
+
+3. 安装pycharm
+`sudo pacman -S pycharm-professional`
 
 ### VScode
 
