@@ -26,7 +26,7 @@ stippled_borders = 0,
 ------------------------------------------------------------------------------------------------------------------------位置
 alignment = 'top_right', --窗口所在屏幕位置
 gap_x = 20,             --窗口离屏幕左边或右边的距离
-gap_y = 55,             --窗口离屏幕顶部或底部的距离
+gap_y = 39,             --窗口离屏幕顶部或底部的距离
 
 minimum_width = 200, --最小宽度
 minimum_height = 200, --最小高度
@@ -60,7 +60,7 @@ imlib_cache_size = 0,
 
 conky.text = [[
 
-${image $HOME/.config/conky/manjaro.png -p 100,2 -s 120x120}
+${image $HOME/.config/conky/manjaro.png -p 100,0 -s 120x120}
 ${voffset 30}
 ${color5}${hr}
 ${color4}系统     : ${color0}${alignr}${execi 10000 awk -F= '/TION/ {print $2}' /etc/lsb-release |sed 's/"//g'}
