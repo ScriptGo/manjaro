@@ -12,11 +12,12 @@ double_buffer = true,
 
 ------------------------------------------------------------------------------------------------------------------------边框
 draw_borders = false,
-draw_graph_borders = true,
-show_graph_scale = false,
-show_graph_range = false,
 draw_outline = false,
 draw_shades = false,
+
+-- draw_graph_borders = true,
+-- show_graph_scale = false,
+-- show_graph_range = false,
 
 no_buffers = true,
 out_to_console = false,
@@ -91,9 +92,9 @@ ${color5}${hr}
 ${color1}SSID  : ${color2}${alignr}${wireless_essid wlp3s0}
 ${color1}IP       : ${color2}${alignr}${addrs wlp3s0}
 
-${color7}上传  :  ${color0}${upspeed wlp3s0}/s  ${color2}${alignr}下载  :  ${color4}${downspeed wlp3s0}/s
+${color7}上传  :  ${color0}${upspeed wlp3s0}/s     ${color7}${alignr}${upspeedgraph wlp3s0 25,90}
 
-${color7}${upspeedgraph wlp3s0 25,90}${alignr}${color4}${downspeedgraph wlp3s0 25,90}
+${color2}下载  :  ${color4}${downspeed wlp3s0}/s   ${color4}${alignr}${downspeedgraph wlp3s0 25,90}
 
 ${color7}累计上传   :   ${alignr}${color0}${totalup wlp3s0}
 ${color2}累计下载   :   ${alignr}${color4}${totaldown wlp3s0}
