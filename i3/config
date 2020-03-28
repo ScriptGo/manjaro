@@ -236,7 +236,6 @@ bindsym $mod+Shift+6 move container to workspace $ws6; workspace $WS6
 
 assign [class="(?i)Chrome"] $WS4
 assign [class="netease-cloud-music"] $WS5
-assign [class="(?i)mpv"] $WS5
 assign [title="htop"] $WS6
 
 ################################################################################
