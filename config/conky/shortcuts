@@ -66,38 +66,40 @@ ${color2}Win + d : ${color1}${alignr}double commander
 ${color2}Win + e : ${color1}${alignr}pcmanfm
 ${color2}Win + F3 : ${color1}${alignr}pcmanfm_pkexec
 ${color2}Win + F5 : ${color1}${alignr}mocp
+${color2}PrtSc : ${color1}${alignr}截取全屏
+${color2}Win + PrtSc : ${color1}${alignr}截取活动区域
+${color2}Win + Shift + PrtSc : ${color1}${alignr}自定义截取区域
 ${color5}${stippled_hr}
 
 ${color1}窗口
 ${color5}${stippled_hr}
-${color2}Alt + s : ${color1}${alignr}堆叠化窗口
-${color2}Alt + t : ${color1}${alignr}标签化窗口
-${color2}Alt + Tab :${color1}${alignr}
-${color2}Win + h/v : ${color1}${alignr}水平/垂直窗口
-${color2}Win + f : ${color1}${alignr}窗口/全屏
+${color2}Alt + Tab :${color1}${alignr}切换窗口显示方向
+${color2}Win + f : ${color1}${alignr}全屏
 ${color2}Win + q : ${color1}${alignr}关闭窗口
 ${color2}Win + s : ${color1}${alignr}窗口调整模式
-${color2}Win + Shift + - : ${color1}${alignr}暂存窗口
-${color2}Win + - : ${color1}${alignr}呼出/隐藏暂存窗口
+${color2}Win + 方向键  : ${color1}${alignr}移动窗口
+${color2}Alt + 方向键  : ${color1}${alignr}切换窗口焦点
 
+${color2}Win + Shift + - : ${color1}${alignr}将窗口转换为暂存窗口
+${color2}Win + - : ${color1}${alignr}显示/隐藏暂存窗口
+${color2}Win + Space : ${color1}${alignr}平铺/浮动焦点切换
+${color2}Win + Shift + Space : ${color1}${alignr}平铺/浮动切换
+${color2}Win + g : ${color1}${alignr}切换窗口为粘滞浮动窗口
 ${color5}${stippled_hr}
 
 ${color1}工作区${font}
 ${color5}${stippled_hr}
-${color2}Win + 数字(1 - 6) :  ${color1}${alignr}切换工作区
+${color2}Win + 数字:  ${color1}${alignr}切换WS
+${color2}Win + Ctrl + 数字 :  ${color1}${alignr}移动窗口到WS
+${color2}Win + Shift + 数字 :  ${color1}${alignr}移动窗口并切换到WS
 ${color5}${stippled_hr}
 
 ${color1}系统
 ${color5}${stippled_hr}
-${color2}Win + m : ${color1}${alignr}隐藏/显示i3bar
-
-${color2}Win + Shift + c : ${color1}${alignr}重载i3配置文件
+${color2}Win + Shift + c : ${color1}${alignr}重载i3
 ${color2}Win + Shift + r : ${color1}${alignr}重启i3
-${color2}Win + Shift + e : ${color1}${alignr}退出i3
 
+${color2}Win + m : ${color1}${alignr}显示bar
 ${color2}Win + 9 : ${color1}${alignr}锁屏
-${color2}Win + 0 : ${color1}${alignr}系统关机操作
-
-${color2}Win -> Mod
-${color2}Alt -> Mod1
+${color2}Win + 0 : ${color1}${alignr}系统操作
 ]]
