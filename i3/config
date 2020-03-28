@@ -164,15 +164,15 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # 粘滞浮动窗口
-bindsym $mod+g fullscreen disable; floating enable; resize set 640 px 640 px; sticky enable
+bindsym $mod+g fullscreen disable; floating enable; resize set 7200 px 720 px; sticky enable
 
 ################################################################################
 
 # 暂存窗口(额外的可隐藏浮动窗口，取消浮动还原成普通窗口)
- # 转换普通窗口为暂存窗口
+ # 将普通窗口转换为暂存窗口
 bindsym $mod+Shift+minus move scratchpad
 
-# 呼出/隐藏暂存窗口
+# 显示/隐藏暂存窗口
 bindsym $mod+minus scratchpad show
 
 ################################################################################
@@ -211,7 +211,7 @@ bindsym $mod+4 workspace $WS4
 bindsym $mod+5 workspace $WS5
 bindsym $mod+6 workspace $WS6
 
-# 将当前活动窗口移动到指定的工作区
+# 将当前活动窗口移动到指定的工作区(仅移动窗口不会切换到指定的工作区)
 
 bindsym $mod+Ctrl+1	move container to workspace $WS1
 bindsym $mod+Ctrl+2	move container to workspace $WS2
@@ -220,7 +220,7 @@ bindsym $mod+Ctrl+4	move container to workspace $WS4
 bindsym $mod+Ctrl+5	move container to workspace $WS5
 bindsym $mod+Ctrl+6	move container to workspace $WS6
 
-# Move to workspace with focused container
+# 移动当前活动窗口并切换到指定的工作区
 
 bindsym $mod+Shift+1 move container to workspace $ws1; workspace $WS1
 bindsym $mod+Shift+2 move container to workspace $ws2; workspace $WS2
@@ -253,10 +253,11 @@ bindsym $mod+e exec --no-startup-id pcmanfm
 bindsym $mod+F3 exec --no-startup-id pcmanfm_pkexec
 bindsym $mod+F5 exec xfce4-terminal -e 'mocp'
 
-bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
+
+bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 ################################################################################
@@ -279,7 +280,6 @@ exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id fcitx
 exec --no-startup-id variety
 
-# 定时启动
 # 自动锁屏
 exec_always --no-startup-id xautolock -time 10 -locker 'i3lock -i ~/Pictures/Wallpapers/lock.png'&
 
