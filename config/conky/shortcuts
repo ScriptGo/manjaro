@@ -73,7 +73,9 @@ ${color5}${stippled_hr}
 
 ${color1}窗口
 ${color5}${stippled_hr}
-${color2}Alt + Tab :${color1}${alignr}切换窗口显示方向
+${color2}Alt + s :${color1}${alignr}堆叠化布局
+${color2}Alt + t :${color1}${alignr}标签化布局
+${color2}Alt + Tab :${color1}${alignr}切换布局(平铺模式切换窗口显示方向)
 ${color2}Win + f : ${color1}${alignr}全屏
 ${color2}Win + q : ${color1}${alignr}关闭窗口
 ${color2}Win + s : ${color1}${alignr}窗口调整模式
