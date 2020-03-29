@@ -202,6 +202,13 @@ bindkey ',' autosuggest-accept #使用逗号补全
 
 `source .zshrc`
 
+### 触摸板
+
+使用 `xinput list` # 查看设备
+`xinput --disable "ETPS/2 Elantech Touchpad"` # 禁用触摸板
+
+
+
 ### 蓝牙配置
 
 `sudo pacman -S bluez bluez-utils blueman` # 安装软件
