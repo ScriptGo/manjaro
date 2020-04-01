@@ -53,7 +53,7 @@ nnoremap <silent> <F6> :call asyncrun#quickfix_toggle(6)<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 
-inoremap <C-s> <ESC>:w<CR>
+inoremap <C-s> <C-o>:w<CR>
 inoremap <C-q> <ESC>:wq<CR>
 
 " Use sane regex expression (see `:h magic` for more info)
@@ -71,9 +71,11 @@ inoremap <C-a> <Home>
 inoremap <C-e> <End>
 
 ""向左/右移动一个字符
-""向上/下直线移动一个字符(行)
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
+
+""向上/下直线移动一个字符(行)
+
 inoremap <C-k> <c-o>gk
 inoremap <C-j> <c-o>gj
 
@@ -87,7 +89,7 @@ inoremap <A-h> <C-o>db
 inoremap <A-l> <C-o>dw
 
 ""删除当前行
-inoremap <A-d> <C-o>dd
+inoremap <C-d> <C-o>dd
 
 ""在当前行的下方/上方插入新行
 
