@@ -336,9 +336,6 @@ status_command i3blocks
 # bar显示位置
 position top
 
-# bar显示方式(手动隐藏/显示)
-bindsym $mod+m bar mode toggle
-
 # please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 # tray_output primary
 # tray_output eDP1
@@ -384,6 +381,9 @@ urgent_workspace    #2f343a   #900000    #ffffff   #E5201D
 
     }
 }
+
+# bar显示方式(手动隐藏/显示)
+bindsym $mod+m bar mode toggle
 
 ################################################################################
 ### i3-gaps
