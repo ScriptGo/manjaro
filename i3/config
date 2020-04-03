@@ -234,6 +234,7 @@ bindsym $mod+Shift+6 move container to workspace $ws6; workspace $WS6
 # WM_CLASS(STRING) = "irssi", "URxvt"
 # 其中“irssi”是实例，”URxvt“是类
 
+assign [class="conky"] $WS1
 assign [class="(?i)Chrome"] $WS4
 assign [class="netease-cloud-music"] $WS5
 assign [title="htop"] $WS6
