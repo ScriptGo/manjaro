@@ -3,22 +3,22 @@
 */
 
 configuration {
-    font: "FuraCode Nerd Font Regular 12";
-    modi: "window,drun,ssh,run";
-    combi-modi: "window,drun,ssh,run";
-    lines: 10;
-    show-icons: true;
-    icon-theme: "MacBuntu-Mine-Y";
-    display-window: " ";
-    display-drun: "🔍 ";
-    display-run: " ";
-    display-ssh: "📡 ";
+    font:                           "FuraCode Nerd Font Regular 12";
+    modi:                           "window,drun,ssh,run";
+    combi-modi:                     "window,drun,ssh,run";
+    lines:                          12;
+    show-icons:                     true;
+    icon-theme:                     "MacBuntu-Mine-Y";
+    display-window:                 " ";
+    display-drun:                   "🔍 ";
+    display-run:                    " ";
+    display-ssh:                    "📡 ";
     threads:                        0;
     scroll-method:                  0;
     disable-history:                false;
     fullscreen:                     false;
-	hide-scrollbar: 				true;
-	sidebar-mode: 					false;
+    hide-scrollbar:                 true;
+    sidebar-mode:                   false;
 }
 
 * {
@@ -37,7 +37,7 @@ window {
     background-color:               @background;
     text-color:                     @foreground;
     border-radius:                  0px;
-    border: 0;
+    border:                         0;
     height:                         50%;
     width:                          30%;
     location:                       center;
@@ -48,19 +48,19 @@ window {
 
 mainbox {
     background-color:               @background-color;
-    children: [inputbar, listview];
-    spacing: 15px;
-    padding: 30px 25px 15px 25px;
-    border: 1px;
+    children:                       [inputbar, listview];
+    spacing:                        15px;
+    padding:                        30px 25px 15px 25px;
+    border:                         1px;
 }
 
 listview {
     background-color:               @background;
-    fixed-height: 0;
-    border: 0px;
-    spacing: 0px;
-    scrollbar: false;
-    padding: 10px 10px 0px;
+    fixed-height:                   0;
+    border:                         0px;
+    spacing:                        0px;
+    scrollbar:                      false;
+    padding:                        10px 10px 0px;
     cycle:                          false;
     dynamic:                        true;
     layout:                         vertical;
@@ -68,7 +68,7 @@ listview {
 
 
 inputbar {
-    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+    children:                       [ prompt,textbox-prompt-colon,entry,case-indicator ];
     background-color:               @background-alt;
     text-color:                     @foreground;
     expand:                         false;
@@ -79,28 +79,25 @@ inputbar {
 }
 
 prompt {
-    enabled: 						true;
-	padding: 						0px 8px 0px 4px;
-    spacing:    0;
-	background-color: 				@background;
-	text-color: 					@foreground;
+    enabled:                        true;
+    padding:                        0px 8px 0px 4px;
+    spacing:                        0;
+    background-color:               @background;
+    text-color:                     @foreground;
 }
-
-
 
 textbox-prompt-colon {
-    background-color: #00000000;
-    expand:     false;
-    str:        ":";
-    margin:     0px 0.3em 0em 0em ;
+    background-color:               #00000000;
+    expand:                         false;
+    str:                            ":";
+    margin:                         0px 0.3em 0em 0em ;
 }
-
 
 entry {
     background-color:               @background;
     text-color:                     @foreground;
     placeholder-color:              @foreground;
-    spacing:    0;
+    spacing:                        0;
     expand:                         true;
     horizontal-align:               0;
     placeholder:                    "Search";
@@ -116,8 +113,8 @@ case-indicator {
 element {
     background-color:               @background;
     text-color:                     @foreground;
-    border: 0;
-    border-radius: 15px;
+    border:                         0;
+    border-radius:                  15px;
     orientation:                    vertical;
     padding:                        10px 0px 10px 0px;
 
