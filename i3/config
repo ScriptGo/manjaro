@@ -19,7 +19,7 @@ client.focused_inactive     #282A36    #282A36      #50fa7b    #282A36
 client.urgent               #282A36    #282A36      #ff79c6    #282A36
 client.placeholder          #282A36    #282A36      #8be9fd    #282A36
 
-client.background           #ffffff
+client.background           #FFFFFF
 
 ################################窗口配置#########################################
 
@@ -99,8 +99,8 @@ bindsym $mod1+Right focus right
 
 # 调整窗口大小
 
-bindsym $mod+s mode "resize"
-mode "resize" {
+bindsym $mod+s mode "窗口调整"
+mode "窗口调整" {
 
 # h窗口宽度减少15个像素
 # j窗口高度增加15个像素
@@ -234,6 +234,7 @@ bindsym $mod+Shift+6 move container to workspace $ws6; workspace $WS6
 # WM_CLASS(STRING) = "irssi", "URxvt"
 # 其中“irssi”是实例，”URxvt“是类
 
+assign [class="Conky"] $WS1
 assign [class="(?i)Chrome"] $WS4
 assign [class="netease-cloud-music"] $WS5
 assign [title="htop"] $WS6
@@ -275,7 +276,8 @@ exec --no-startup-id blueman-applet
 # exec_always --no-startup-id ff-theme-util
 
 exec --no-startup-id start_conky_maia
-exec_always --no-startup-id fix_xcursor
+exec_always --no-startup-id fix_xcursor "Azenis"
+exec_always --no-startup-id setcursor "Azenis"
 
 exec_always --no-startup-id fcitx
 exec --no-startup-id variety
@@ -331,7 +333,7 @@ mode "$mode_system" {
 
 bar {
 
-i3bar_command i3bar -t
+i3bar_command i3bar
 status_command i3blocks
 # bar显示位置
 position top
@@ -361,24 +363,23 @@ font pango: FuraCode Nerd Font Regular 12
 
 # 隐藏工作区名前的数字(默认显示)
 strip_workspace_numbers yes
-
 # 是否显示绑定模式指示器(默认显示)
 # binding_mode_indicator yes
 
     colors {
 
 # bar的颜色
-background #222222
+background #2b303b
 
 # 状态栏
-statusline #dddddd
+statusline #2b303b
 
 # 分隔符
-separator #666666
+separator #3f4751
 
 #                    border   backgr     text
-focused_workspace   #0088CC   #0088CC    #ffffff   #292F34
-active_workspace    #333333   #333333    #ffffff   #FDF6E3
+focused_workspace   #7CFC00   #0000FF    #ffffff   #292F34
+active_workspace    #333333   #FFFF00    #ffffff   #FDF6E3
 inactive_workspace  #333333   #333333    #888888   #EEE8D5
 urgent_workspace    #2f343a   #900000    #ffffff   #E5201D
 
@@ -387,7 +388,6 @@ urgent_workspace    #2f343a   #900000    #ffffff   #E5201D
 
 # bar显示方式(手动隐藏/显示)
 bindsym $mod+m bar mode toggle
-
 ################################################################################
 ### i3-gaps
 ################################################################################
