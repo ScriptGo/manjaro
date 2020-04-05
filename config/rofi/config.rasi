@@ -1,85 +1,158 @@
-/* Rofi config file */
+/* Rofi config file
+ * 修改自 Github : @adi1090x 的 blurry.rasi
+*/
+
 configuration {
-    modi: "window,ssh,drun,run";
+    font: "FuraCode Nerd Font Regular 12";
+    modi: "window,drun,ssh,run";
     combi-modi: "window,drun,ssh,run";
     lines: 10;
-    font: "FuraCode Nerd Font Regular 12";
     show-icons: true;
     icon-theme: "MacBuntu-Mine-Y";
     display-window: " ";
-    display-drun: " ";
-    display-run: ">_ ";
-    display-ssh: "~# ";
+    display-drun: "🔍 ";
+    display-run: " ";
+    display-ssh: "📡 ";
 }
 
 * {
-    background-color: #282C33;
-    border-color: #00000000;
-    text-color: #EFEFEF;
+    background:                     #00000000;
+    background-color:               #00000066;
+    background-entry:               #00000033;
+    background-alt:                 #f2f2f215;
+    foreground:                     #f2f2f2EE;
+    foreground-selected:            #ffffffFF;
+    urgent:                         #E91E6366;
+    urgent-selected:                #E91E6377;
 }
- 
-#window {
-    border: 0;
-    border-radius: 4px;
-    padding: 8;
 
+window {
+    transparency:                   "real";
+    background-color:               @background;
+    text-color:                     @foreground;
+    border-radius:                  0px;
+    border: 0;
+    height:                         50%;
+    width:                          30%;
+    location:                       center;
+    anchor:                         center;
+    x-offset:                       0;
+    y-offset:                       0;
 }
- 
-#mainbox {
-    background-color: #00000000;
+
+mainbox {
+    background-color:               @background-color;
     children: [inputbar, listview];
-    spacing: 10px;
-    /*margin: 20%;*/
-    padding: 30px 0;
+    spacing: 15px;
+    padding: 30px 25px 15px 25px;
     border: 1px;
-    border-color: @base0D;
 }
- 
- 
-#listview {
-    background-color: #00000000;
+
+listview {
+    background-color:               @background;
     fixed-height: 0;
     border: 0px;
-    spacing: 5px;
+    spacing: 0px;
     scrollbar: false;
     padding: 10px 10px 0px;
+    cycle:                          false;
+    dynamic:                        true;
+    layout:                         vertical;
 }
- 
-#element {
-    background-color: #00000000;
-    border: 0;
-    border-radius: 15px;
-    padding: 3 0  3 4 ;
-}
- 
-#element selected {
-    background-color: #00a0e6;
-    text-color: #EFEFEF;
-}
- 
- 
-#inputbar {
+
+
+inputbar {
     children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
-    background-color: #00000000;
+    background-color:               @background-alt;
+    text-color:                     @foreground;
+    expand:                         false;
+    border-radius:                  6px;
+    margin:                         0px 0px 0px 0px;
+    padding:                        10px 10px 10px 10px;
+    position:                       center;
 }
- 
-#case-indicator {
-    background-color: #00000000;
+
+prompt {
+    enabled: 						true;
+	padding: 						0px 8px 0px 4px;
     spacing:    0;
+	background-color: 				@background;
+	text-color: 					@foreground;
 }
-#entry {
-    background-color: #00000000;
-    spacing:    0;
-}
-#prompt {
-    background-color: #00000000;
-    spacing:    0;
-}
- 
-#textbox-prompt-colon {
+
+
+
+textbox-prompt-colon {
     background-color: #00000000;
     expand:     false;
     str:        ":";
     margin:     0px 0.3em 0em 0em ;
 }
 
+
+entry {
+    background-color:               @background;
+    text-color:                     @foreground;
+    placeholder-color:              @foreground;
+    spacing:    0;
+    expand:                         true;
+    horizontal-align:               0;
+    placeholder:                    "Search";
+    blink:                          true;
+}
+
+case-indicator {
+    background-color:               @background;
+    text-color:                     @foreground;
+    spacing:                        0;
+}
+
+element {
+    background-color:               @background;
+    text-color:                     @foreground;
+    border: 0;
+    border-radius: 15px;
+    orientation:                    vertical;
+    padding:                        10px 0px 10px 0px;
+
+}
+
+element-icon {
+    size:                           65px;
+    border:                         0px;
+}
+
+element-text {
+    expand:                         true;
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+    margin:                         5px 10px 0px 10px;
+}
+
+element normal.urgent,
+element alternate.urgent {
+    background-color:               @urgent;
+    text-color:                     @foreground;
+    border-radius:                  9px;
+}
+
+element normal.active,
+element alternate.active {
+    background-color:               @background-alt;
+    text-color:                     @foreground;
+}
+
+element selected {
+    background-color:               #00a0e6;
+    text-color:                     #EFEFEF;
+}
+
+element selected.urgent {
+    background-color:               @urgent-selected;
+    text-color:                     @foreground;
+}
+
+element selected.active {
+    background-color:               @background-alt;
+    color:                          @foreground-selected;
+}
