@@ -331,7 +331,7 @@ mode "$mode_system" {
 
 bar {
 
-i3bar_command i3bar
+i3bar_command i3bar -t
 status_command i3blocks
 # bar显示位置
 position top
@@ -361,6 +361,9 @@ font pango: FuraCode Nerd Font Regular 12
 
 # 隐藏工作区名前的数字(默认显示)
 strip_workspace_numbers yes
+
+# 是否显示绑定模式指示器(默认显示)
+# binding_mode_indicator yes
 
     colors {
 
