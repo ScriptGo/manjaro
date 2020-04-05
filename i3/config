@@ -293,10 +293,10 @@ exec_always --no-startup-id xset dpms 900
 ################################################################################################
 exec -no-startup-id pulseaudio --start
 
+# 需要配合i3blocks脚本使用
 # 鼠标左键/右键切换输出设备
 # 鼠标滚轮增大/减小音量
 # 鼠标中间静音
-# 需要配合i3blocks脚本使用
 
 bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
