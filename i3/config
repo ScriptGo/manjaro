@@ -369,10 +369,10 @@ strip_workspace_numbers yes
     colors {
 
 # bar的颜色
-background #2b303b
+background #000000
 
 # 状态栏
-statusline #2b303b
+statusline #dddddd
 
 # 分隔符
 separator #3f4751
