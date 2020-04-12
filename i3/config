@@ -333,7 +333,7 @@ mode "$mode_system" {
 
 bar {
 
-i3bar_command i3bar
+i3bar_command i3bar -t
 status_command i3blocks
 # bar显示位置
 position top
@@ -369,10 +369,10 @@ strip_workspace_numbers yes
     colors {
 
 # bar的颜色
-background #000000
+background #333333aa
 
 # 状态栏
-statusline #dddddd
+statusline #FFFFFFaa
 
 # 分隔符
 separator #3f4751
