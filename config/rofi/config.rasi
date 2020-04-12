@@ -4,7 +4,7 @@
 
 configuration {
     font:                           "FuraCode Nerd Font Regular 12";
-    modi:                           "window,drun,ssh,run";
+    modi:                           "window,drun,ssh,run,combi";
     combi-modi:                     "window,drun,ssh,run";
     lines:                          12;
     show-icons:                     true;
@@ -100,7 +100,6 @@ entry {
     spacing:                        0;
     expand:                         true;
     horizontal-align:               0;
-    placeholder:                    "Search";
     blink:                          true;
 }
 
