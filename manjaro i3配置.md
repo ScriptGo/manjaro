@@ -94,24 +94,24 @@ sudo pacman -S rofi
 ### 常用
 
 ```shell
-sudo pacman -S ffmpeg ffmpegthumbnailer  # 解码工具
-sudo pacman -S mpv netease-cloud-music    # 播放器
+sudo pacman -S ffmpeg ffmpegthumbnailer               # 解码工具
+sudo pacman -S mpv netease-cloud-music                # 播放器
 sudo pacman -S google-chrome                          # 浏览器
-sudo pacman -S gimp inkscape                           # 图片处理
-sudo pacman -S android-tools android-udev # 刷机用的
-sudo pacman -S simplescreenrecorder peek flameshot # 录屏、截图
-sudo pacman -S screenkey                                     # 按键回显
-sudo pacman -S doublecmd-gtk2                       # 资源管理
-sudo pacman -S typora gvim visual-studio-code-bin    # 编辑器
-sudo pacman -S baidunetdisk-bin                      # 百度网盘
-sudo pacman -S transmission-gtk                      # 下载
-sudo pacman -S unrar xarchiver gtkhash        # 压缩与校验
-sudo pacman -S libreoffice                                    # 办公软件
-sudo pacman -S timeshift aria2 uget                          # 系统备份
-sudo pacman -S v2ray qv2ray                             # 科学上网
-sudo pacman -S gparted                                       # 磁盘管理
-sudo pacman -S gufw                                             # 防火墙
-sudo pacman -S manjaro-settings-manager # manjaro系统设置工具
+sudo pacman -S gimp inkscape                          # 图片处理
+sudo pacman -S android-tools android-udev             # 刷机用的
+sudo pacman -S simplescreenrecorder peek flameshot    # 录屏、截图
+sudo pacman -S screenkey                              # 按键回显
+sudo pacman -S doublecmd-gtk2                         # 资源管理
+sudo pacman -S typora gvim                            # 编辑器
+sudo pacman -S baidunetdisk-bin                       # 百度网盘
+sudo pacman -S transmission-gtk                       # 下载
+sudo pacman -S unrar xarchiver gtkhash                # 压缩与校验
+sudo pacman -S libreoffice                            # 办公软件
+sudo pacman -S timeshift                              # 系统备份
+sudo pacman -S v2ray qv2ray                           # 科学上网
+sudo pacman -S gparted                                # 磁盘管理
+sudo pacman -S gufw                                   # 防火墙
+sudo pacman -S manjaro-settings-manager               # manjaro系统设置工具
 ```
 
 ### CLI工具
@@ -224,15 +224,14 @@ sudo systemctl enable bluetooth
 
 **蓝牙耳机已连接但是没有声音**
 
-`sudo pacman -S pulseaudio-bluetooth pavucontrol pulseaudio-alsa pulseaudio-bluetooth-a2dp-gdm-fix
-` # 安装这些软件
+`sudo pacman -S pulseaudio-bluetooth pavucontrol pulseaudio-alsa pulseaudio-bluetooth-a2dp-gdm-fix` # 安装这些软件
 
 `sudo systemctl restart bluetooth` # 重启蓝牙服务
 
 启动pulseaudio服务
 ```shell
 pulseaudio -k                      # 确保没有pulseaudio启动
-pulseaudio --start              # 启动pulseaudio服务
+pulseaudio --start                 # 启动pulseaudio服务
 ```
 
 
@@ -248,11 +247,12 @@ cp .tmux/.tmux.conf.local .
 
 ### conky
 
-修改配置文件路径
 `sudo vim /usr/bin/start_conky_maia` # 编辑此文件
 
+修改配置文件路径
+
 ```shell
-conky -c ~/.config/conky/shortcuts &&  # 修改为你的conkyrc存放位置
+conky -c ~/.config/conky/shortcuts &&    # 修改为你的conkyrc存放位置
 conky -c ~/.config/conky/system &&       # 修改为你的conkyrc存放位置
 ```
 
@@ -261,6 +261,7 @@ conky -c ~/.config/conky/system &&       # 修改为你的conkyrc存放位置
 ## 系统美化
 
 美化资源存放位置
+
 ```shell
 主题存放目录 : /usr/share/themes 或 ~/.local/share/themes
 图标存放目录 : /usr/share/icons 或~/.local/share/icons
@@ -273,6 +274,7 @@ conky -c ~/.config/conky/system &&       # 修改为你的conkyrc存放位置
 ### 光标主题
 
 在i3wm，设置好主题后，主题不正常工作，可以修改以下配置文件
+**就算修改了以下文件，在某些应用仍然不能正常工作**
 
 ```shell
 1. 编辑  ~/.Xresources 文件中添加以下这一行即可:
@@ -295,13 +297,12 @@ gtk-cursor-theme-name="Azenis"
 gtk-cursor-theme-name=Azenis
 ```
 
-**就算修改了以下文件，在某些应用仍然不能正常工作**
-
 
 
 ### grub 美化
 
 `sudo vim  /etc/default/grub` # 修改grub文件
+
 ```shell
 GRUB_TIMEOUT_STYLE=hide # 修改为 menu，开机显示grub引导画面
 GRUB_TIMEOUT=15 # 修改为 5
@@ -322,12 +323,6 @@ https://github.com/vinceliuice/grub2-themes
 sudo ./install.sh -t      # install Tela theme
 sudo ./install.sh -r -t  # Remove Tela theme
 ```
-
-
-
-## 语言包
-
-打开 `manjaro setting`  安装缺失的语言包
 
 
 
@@ -512,3 +507,8 @@ sudo rm -rf /var/lib/docker
 | q/Q        | 停止播出并退出/保存当前播放进度并退出 |
 | i          | 显示视频的详情参数                    |
 | m          | 静音                                  |
+
+
+## 语言包
+
+打开 `manjaro setting`  安装缺失的语言包
