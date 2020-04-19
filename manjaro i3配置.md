@@ -333,46 +333,6 @@ sudo ./install.sh -r -t  # Remove Tela theme
 
 ## 开发环境配置
 
-### MariDB
-
-1. 安装
-
-`sudo pacman -S mariadb mariadb-clients`
-
-2. 安装完成后，初始化数据库
-
-`sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql`
-
-3. 启动服务
-```shell
-sudo systemctl start mariadb        #启动 MariaDb 服务
-sudo systemctl enable mariadb    #开机自启动
-```
-
-4. 为root用户添加密码
-
-`sudo mysqladmin -u root password "root"`
-
-5. 修改编码
-
-```shell
-sudo vim /etc/my.cnf # 编辑此文件，加入下面的内容
-
-[client]
-default-character-set = utf8mb4
-[mysqld]
-collation_server = utf8mb4_unicode_ci
-character_set_client = utf8mb4
-character_set_server = utf8mb4
-skip-character-set-client-handshake
-[mysql]
-default-character-set = utf8mb4
-```
-
-6. 登录数据库
-
-`mysql -uroot -p ` # 回车后，输入root用户的密码即可
-
 
 
 ### MongoDB
@@ -403,83 +363,6 @@ sudo systemctl enable mongodb.service # 开机自启
 
 
 
-### Anaconda
-
-1. 安装
-`sudo pacman -S anaconda`
-
-2. 配置
-```shell
-export PATH=/opt/anaconda/bin/:$PATH # 将这命令加入到.zshrc中
-source .zshrc # 重载.zshrc文件使配置生效
-source /opt/anaconda/bin/activate root # 激活root环境
-```
-
-3. 配置conda软件源
-
-`sudo conda config`  # 生成配置文件
-
-linux下配置文件的位置: ~/.condarc 或 /root/.condarc
-
-复制下面的内容，覆盖到.condarc文件中
-
-```shell
-channels:
-  - defaults
-show_channel_urls: true
-default_channels:
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
-custom_channels:
-  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-```
-
-4. 更新包
-`sudo conda update --all`
-
-
-
-### Jupyter
-
-```shell
-sudo conda install -c conda-forge jupyter_contrib_nbextensions
-sudo conda install jupyter_nbextensions_configurator
-
-jupyter nbextensions_configurator enable # 启用jupyter扩展
-jupyter notebook --generate-config #生成配置文件
-
-在其配置文件jupyter_notebook_config.py中，找到
-
-# c.NotebookApp.notebook_dir = ''
-# 要记得删掉#
-c.NotebookApp.notebook_dir = '修改为你的工作目录'
-```
-
-
-
-为 Jupyter QtConsole 创建启动器
-
-首先切换到 ` /usr/share/applications/`，然后执行下面到操作
-
-```shell
-sudo vim JupyterQtConsole.desktop # 创建JupyterQtConsole.desktop
-输入以下内容
-[Desktop Entry]
-Encoding=UTF-8
-Name=Jupyter Qtconsole
-GenericName=Jupyter Qtconsole
-Comment=Jupyter Qtconsole
-Exec=/opt/anaconda/bin/jupyter-qtconsole
- Icon=/Jupyter
-Terminal=false
-Type=Application
-Categories=IDE;Development
-```
-最后赋予可以执行权限
-
-`sudo chmod +x JupyterQtConsole.desktop `
-
 ### Python
 
 1. 修改 pip 源
@@ -489,38 +372,57 @@ Categories=IDE;Development
 2. 安装模块
 
 ```shell
+yay idle-python3.7 # IDLE
+sudo pip install flake8 # 语法检查工具
+sudo pip install isort # 导入模块整理工具
+sudo pip install yapf # google开发的代码格式化工具
+
 sudo pip install PySimpleGUI  # gui模块
 sudo pip install pyecharts pyecharts_snapshot # 图表模块
+
+sudo pip install pandas matplotlib scipy
+
 sudo pip install vim-vint  # vimscript 语法检查工具
 sudo conda install pymongo   # mongodb连接工具
 ```
 
-3. 安装pycharm
-`sudo pacman -S pycharm-professional`
+安装 spyder 和 kite
 
-### VScode
+sudo pip install spyder # 打开spyder自动安装 kite
 
-常用插件
+3. 为`Jupyter QtConsole`创建启动器
 
-| 插件                                                  | 作者              | 描述             |
-| ----------------------------------------------------- | ----------------- | ---------------- |
-| Python                                                | Microsoft         |                  |
-| Python Prview                                         | dongli            | 可视化python运行 |
-| MagicPython                                           | MagicStack Inc    | Python语法高亮   |
-| Visual Studio IntelliCode                             | Microsoft         | 自动补全         |
-| Anaconda Extension Pack                               |                   |                  |
-| indent-rainbow                                        | oderwat           | 缩进指示         |
-| Bracket Pair Colorizer2                               | CoenraadS         | 配对括号高亮     |
-| vscode-icons                                          | VSCode Icons Team | 文件图标         |
-| GitLens                                               | Eric Amodio       |                  |
-| markdown preview enhanced                             |                   |                  |
-| markdownlit                                           |                   |                  |
-| Graphviz(dot) language support for visual studio code | João Pinto        |                  |
-| REST Client                                           | Huachao Mao       |                  |
-| vscode-faker                                          | Budi Irawan       |                  |
-| asciidecorator                                        | helixquar         |                  |
+首先切换到 `/usr/share/applications/`，然后执行下面到操作
 
+```shell
+sudo vim JupyterQtConsole.desktop # 创建JupyterQtConsole.desktop
 
+输入以下内容
+[Desktop Entry]
+Encoding=UTF-8
+Name=Jupyter Qtconsole
+GenericName=Jupyter Qtconsole
+Comment=Jupyter Qtconsole
+Exec=/usr/bin/jupyter-qtconsole
+Icon=/Jupyter
+Terminal=false
+Type=Application
+Categories=IDE;Development
+```
+最后赋予可以执行权限
+
+`sudo chmod +x JupyterQtConsole.desktop `
+
+更新pip
+
+sudo pip install pip --upgrade
+
+pip命令
+
+pip install 包名           # 安装包
+pip list                  # 列出当前安装的包
+pip list --outdate        # 查看可升级的包
+pip install 包名 --upgrade # 升级包
 
 ### Docker
 
@@ -582,6 +484,8 @@ sudo rm -rf /var/lib/docker
 将VirtualBox模块添加到内核中。或者 直接重启机器
 `sudo modprobe vboxdrv`
 安装增强包
+
+
 
 ### MPV 配置
 
