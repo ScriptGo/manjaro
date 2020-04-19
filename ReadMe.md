@@ -16,7 +16,6 @@
 | Media    | mpv & netease-cloud-music |
 | DB       | mongodb         |
 | IDE      | Spyder & DataGrip        |
-| Other    | anaconda                  |
 
 
 
