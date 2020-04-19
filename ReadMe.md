@@ -14,8 +14,8 @@
 | Browser  | chrome                    |
 | Editor   | vim & typora              |
 | Media    | mpv & netease-cloud-music |
-| DB       | mariadb & mongodb         |
-| IDE      | pycharm & datagrip        |
+| DB       | mongodb         |
+| IDE      | Spyder & DataGrip        |
 | Other    | anaconda                  |
 
 

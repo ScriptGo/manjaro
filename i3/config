@@ -195,9 +195,9 @@ for_window [urgent=latest] focus
 set $WS1   "1:"
 set $WS2   "2:📝"
 set $WS3   "3:"
-set $WS5   "4:"
-set $WS6   "5:🎵"
-set $WS7   "6:"
+set $WS4   "4:"
+set $WS5   "5:🎵"
+set $WS6   "6:"
 
 # 自动切换工作区
 workspace_auto_back_and_forth yes
