@@ -32,7 +32,7 @@ gap_y = 39,             --窗口离屏幕顶部或底部的距离
 minimum_width = 250, --最小宽度
 minimum_height = 200, --最小高度
 ------------------------------------------------------------------------------------------------------------------------字体
-font = 'Noto Sans CJK SC:size=10',
+font = 'Sarasa Mono:size=11',
 uppercase = false,
 use_spacer = 'none',
 
@@ -41,7 +41,7 @@ use_xft = true,
 override_utf8_locale = true,
 
 ------------------------------------------------------------------------------------------------------------------------颜色
-color0 = 'FF00FF',	--洋红色
+color0 = 'FF00FF', --洋红色
 color1 = '7CFC00', --草坪绿
 color2 = 'FFFF00', --纯黄色
 color3 = '0000FF', --纯蓝色
@@ -61,7 +61,7 @@ imlib_cache_size = 0,
 
 conky.text = [[
 
-${image $HOME/.config/conky/manjaro.png -p 55,0 -s 120x120}
+${image $HOME/.config/conky/manjaro.png -p 55,-2 -s 120x120}
 ${voffset 30}
 ${color5}${hr}
 ${color4}系统     : ${color0}${alignr}${execi 10000 awk -F= '/TION/ {print $2}' /etc/lsb-release |sed 's/"//g'}

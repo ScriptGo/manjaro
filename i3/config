@@ -223,7 +223,7 @@ bindsym $mod+Ctrl+5	move container to workspace $WS5
 bindsym $mod+Ctrl+6	move container to workspace $WS6
 bindsym $mod+Ctrl+7	move container to workspace $WS7
 
-# 移动当前活动窗口并切换到指定的工作区
+# 移动当前活动窗口并切换到指定的工作区(连同当前活动窗口一起切换到指定的工作区)
 
 bindsym $mod+Shift+1 move container to workspace $ws1; workspace $WS1
 bindsym $mod+Shift+2 move container to workspace $ws2; workspace $WS2
@@ -246,7 +246,7 @@ assign [title="htop"] $WS7
 ### 快速启动
 ################################################################################
 
-bindsym $mod1 + d exec --no-startup-id rofi -show drun
+bindsym $mod + l exec --no-startup-id rofi -show drun
 bindsym $mod+Tab exec --no-startup-id rofi -show window
 
 bindsym $mod+z exec --no-startup-id morc_menu

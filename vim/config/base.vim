@@ -167,10 +167,10 @@ set list listchars=precedes:«,extends:»,tab:▸∙,trail:˽   ""空白字符�
 highlight LeaderTab guifg=yellow                         ""设定行首tab为黄色
 match LeaderTab /^\t/                                    ""匹配行首tab
 
-set tabstop=4
+set tabstop=2
 set expandtab
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set smartindent
 set smarttab
 set shiftround
