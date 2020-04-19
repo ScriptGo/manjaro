@@ -51,8 +51,8 @@ ILoveCandy
 1. 首先安装字体(解决系统安装后出现的乱码)
 
 ```shell
-sudo pacman -S ttf-cascadia-code ttf-fira-code ttf-jetbrains-mono ttf-sarasa-gothic
-sudo pacman -S ttf-hack noto-fonts-cjk noto-fonts-emoji awesome-terminal-fonts ttf-font-awesome
+sudo pacman -S ttf-jetbrains-mono ttf-sarasa-gothic
+sudo pacman -S noto-fonts-cjk noto-fonts-emoji awesome-terminal-fonts ttf-font-awesome
 ```
 2. 安装xdg-user-dirs-gtk
 

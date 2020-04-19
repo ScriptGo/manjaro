@@ -7,10 +7,10 @@ if has('win64')
    source $VIMRUNTIME/delmenu.vim                  ""解决菜单乱码
    source $VIMRUNTIME/menu.vim
    set helplang=cn                                 ""中文帮助  
-   set guifont=Fira_Code:h12:cANSI:qDRAFT   ""Windows字体设置(Retina高清屏字体)
+   set guifont=JetBrains_Mono:h12:cANSI            ""Windows字体设置
 else
    set helplang=cn                                 ""中文帮助
-   set guifont=Fira\ Code\ 12                      ""Linux字体设置
+   set guifont=JetBrains\ Mono\ 12                      ""Linux字体设置
 endif
 
 """=============================================================================
