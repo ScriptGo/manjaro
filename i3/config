@@ -192,12 +192,13 @@ for_window [urgent=latest] focus
 
 # 自定义工作区名称
 
-set $WS1   "1:"
-set $WS2   "2:📝"
+set $WS1   "1:"
+set $WS2   "2:"
 set $WS3   "3:"
-set $WS4   "4:"
-set $WS5   "5:🎵"
-set $WS6   "6:"
+set $WS4   "4:"
+set $WS5   "5:"
+set $WS6   "6:"
+set $WS7   "7:"
 
 # 自动切换工作区
 workspace_auto_back_and_forth yes
@@ -210,6 +211,7 @@ bindsym $mod+3 workspace $WS3
 bindsym $mod+4 workspace $WS4
 bindsym $mod+5 workspace $WS5
 bindsym $mod+6 workspace $WS6
+bindsym $mod+7 workspace $WS7
 
 # 将当前活动窗口移动到指定的工作区(仅移动窗口不会切换到指定的工作区)
 
@@ -219,6 +221,7 @@ bindsym $mod+Ctrl+3	move container to workspace $WS3
 bindsym $mod+Ctrl+4	move container to workspace $WS4
 bindsym $mod+Ctrl+5	move container to workspace $WS5
 bindsym $mod+Ctrl+6	move container to workspace $WS6
+bindsym $mod+Ctrl+7	move container to workspace $WS7
 
 # 移动当前活动窗口并切换到指定的工作区
 
@@ -228,15 +231,16 @@ bindsym $mod+Shift+3 move container to workspace $ws3; workspace $WS3
 bindsym $mod+Shift+4 move container to workspace $ws4; workspace $WS4
 bindsym $mod+Shift+5 move container to workspace $ws5; workspace $WS5
 bindsym $mod+Shift+6 move container to workspace $ws6; workspace $WS6
+bindsym $mod+Shift+7 move container to workspace $ws6; workspace $WS7
 
 # 自动将窗口放置到指定工作区
 # 要获取类和实例，可以使用xprop。单击窗口后，可能会有这样子的输出
 # WM_CLASS(STRING) = "irssi", "URxvt"
 # 其中“irssi”是实例，”URxvt“是类
 
-assign [class="(?i)Chrome"] $WS4
-assign [class="netease-cloud-music"] $WS5
-assign [title="htop"] $WS6
+assign [class="(?i)Chrome"] $WS5
+assign [class="netease-cloud-music"] $WS6
+assign [title="htop"] $WS7
 
 ################################################################################
 ### 快速启动
