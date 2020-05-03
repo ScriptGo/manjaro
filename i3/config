@@ -49,7 +49,7 @@ bindsym $mod1+s   layout stacking
 bindsym $mod1+t   layout tabbed
 bindsym $mod1+Tab layout toggle split
 
- # 自动切换到新打开的窗口
+# 自动切换到新打开的窗口
 focus_on_window_activation smart
 
 # 全屏模式下弹出窗口配置
@@ -59,8 +59,8 @@ popup_during_fullscreen smart
 focus_follows_mouse yes
 
 # 新建窗口的分割方向
-bindsym $mod+v split vertical
-bindsym $mod+h split horizontal
+bindsym $mod+v split vertical;exec   notify-send "水平分割"
+bindsym $mod+h split horizontal;exec notify-send "垂直分割"
 
 # 焦点切换到父窗口
 bindsym $mod+p focus parent
@@ -68,7 +68,7 @@ bindsym $mod+p focus parent
 # 焦点切换回子窗口
 bindsym $mod+Shift+p focus child
 
- # 窗口全屏
+# 窗口全屏
 bindsym $mod+f fullscreen toggle
 
 # 关闭窗口
@@ -138,16 +138,27 @@ floating_modifier $mod
 # 指定类型的窗口统一设置成浮动类型
 for_window [window_role="pop-up|bubble|task_dialog|Preferences"] floating enable
 for_window [window_type="dialog|menu"] floating enable
+for_window [window_role="GtkFileChooserDialog"] resize set 800 600
+for_window [window_role="GtkFileChooserDialog"] move position center
+for_window [window_role="Organizer"] floating enable
+for_window [window_role="toolbox"] floating enable
 
 # 以下程序使用浮动窗口模式
+for_window [title="File Transfer*"] floating enable
+for_window [title="alsamixer"] floating enable border pixel 1
+for_window [class="qt5ct"] floating enable border normal
+for_window [class="Qtconfig-qt4"] floating enable border normal
+for_window [class="(?i)virtualbox"] floating enable border normal
 
 for_window [class="Xfce4-terminal"] floating enable
 for_window [class="mpv"] floating enable
+for_window [class="Pavucontrol"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class ="Blueman-manager"] floating enable
 for_window [class="jupyter-qtconsole"] floating enable
 for_window [class="netease-cloud-music"] floating enable
 for_window [class="Gimp"] floating enable
+
 for_window [class="Xarchiver"] floating enable
 for_window [class="GParted"] floating enable
 for_window [class="Lxappearance"] floating enable
@@ -164,7 +175,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # 粘滞浮动窗口
-bindsym $mod+g fullscreen disable; floating enable; resize set 720 px 720 px; sticky enable
+bindsym $mod+g fullscreen disable; floating enable; resize set 810 px 810 px; sticky enable
 
 ################################################################################
 
@@ -238,8 +249,14 @@ bindsym $mod+Shift+7 move container to workspace $ws6; workspace $WS7
 # WM_CLASS(STRING) = "irssi", "URxvt"
 # 其中“irssi”是实例，”URxvt“是类
 
+assign [class="Typora"] $WS2
+assign [class="libreoffice-calc"] $WS2
+assign [class="libreoffice-startcenter"] $WS2
+assign [class="libreoffice-writer"] $WS2
 assign [class="(?i)Chrome"] $WS5
 assign [class="netease-cloud-music"] $WS6
+assign [class="VirtualBox Manager"] $WS7
+assign [class="VirtualBox Machine"] $WS7
 assign [title="htop"] $WS7
 
 ################################################################################
@@ -250,6 +267,9 @@ bindsym $mod + l exec --no-startup-id rofi -show drun
 bindsym $mod+Tab exec --no-startup-id rofi -show window
 
 bindsym $mod+z exec --no-startup-id morc_menu
+
+# Drop down terminal
+# bindsym $mod+Shift+Return exec xfce4-terminal --drop-down
 bindsym $mod+r exec --no-startup-id xfce4-terminal
 bindsym $mod+d exec --no-startup-id doublecmd
 
@@ -296,7 +316,7 @@ exec_always --no-startup-id xset dpms 900
 ################################################################################
 #### 声音
 ################################################################################################
-exec -no-startup-id pulseaudio --start
+exec -no-startup-id pulseaudio --start &
 
 # 需要配合i3blocks脚本使用
 # 鼠标左键/右键切换输出设备
@@ -394,8 +414,20 @@ bindsym $mod+m bar mode toggle
 ################################################################################
 ### i3-gaps
 ################################################################################
-gaps inner 6
-gaps outer 1
+
+# 关闭标题栏，将border设为0px
+for_window [class="^.*"] border pixel 0
+for_window [title="^.*"] border pixel 0
+
+gaps inner 10
+gaps outer -11
+
+# gaps horizontal 20
+# gaps vertical 20
+# gaps top 10
+# gaps bottom 10
+# gaps left 10
+# gaps right 10
 
 smart_gaps on
 smart_borders on
