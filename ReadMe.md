@@ -30,20 +30,6 @@
 
 
 
-### WorkSpace Icons
-
-|  | Icons |
-| -------- | ------------ |
-| Logo |         |
-| setting | 漣 煉   襁 |
-| Terminal |      |
-| Code |     |
-| Git |       |
-| Music |   ﱘ      |
-| Media | 金 喇 奈 輸 |
-| Web | 爵       |
-| Other |    ﰍ  |
-
 
 ### 感谢
 
