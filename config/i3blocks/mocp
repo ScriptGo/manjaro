@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 
 state=$(mocp -Q '%state')
 if [ $state = 'PAUSE' ]
