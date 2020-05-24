@@ -31,6 +31,7 @@ Plug 'tpope/vim-surround' "快速编辑成对的符号
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }  "对齐
 Plug 'liuchengxu/graphviz.vim' "流程图
 "Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] } "快捷键管理
+Plug 'lilydjwg/colorizer' "预览颜色
 
 if has('win64')
     Plug 'Yggdroot/LeaderF', { 'do': '.\install.bat' }

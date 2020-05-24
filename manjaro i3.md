@@ -51,8 +51,8 @@ ILoveCandy
 1. 首先安装字体(解决系统安装后出现的乱码)
 
 ```shell
-sudo pacman -S ttf-jetbrains-mono ttf-sarasa-gothic
-sudo pacman -S noto-fonts-cjk noto-fonts-emoji awesome-terminal-fonts ttf-font-awesome
+sudo pacman -S ttf-jetbrains-mono ttf-sarasa-gothic otf-fira-code noto-fonts-cjk
+sudo pacman -S noto-fonts-emoji awesome-terminal-fonts otf-font-awesome
 ```
 2. 安装xdg-user-dirs-gtk
 
@@ -88,6 +88,7 @@ export LANG=zh_CN
 ```shell
 sudo pacman -S xfce4-terminal
 sudo pacman -S i3blocks
+sudo pacman -S polybar
 sudo pacman -S rofi
 ```
 
@@ -96,6 +97,7 @@ sudo pacman -S rofi
 ```shell
 sudo pacman -S ffmpeg ffmpegthumbnailer               # 解码工具
 sudo pacman -S mpv netease-cloud-music                # 播放器
+sudo pacman -S mpd ncmpcpp
 sudo pacman -S google-chrome                          # 浏览器
 sudo pacman -S gimp inkscape                          # 图片处理
 sudo pacman -S android-tools android-udev             # 刷机用的
@@ -138,6 +140,7 @@ sudo pacman -S tldr fd bat exa jq
 ```shell
 sudo pacman -S neofetch fortune-mod cowsay
 sudo pacman -S sl cmatrix
+yay -S tty-clock
 ```
 
 ### 输入法

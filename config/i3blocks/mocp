@@ -6,9 +6,9 @@ then
 	icon="⏸️"
 elif [ $state = 'PLAY' ]
 then
-	icon="🔀"
+	icon="▶️"
 else
-	icon="🔄"
+	icon="⏹️"
 fi
 
 if [ $icon = "⏹️" ]
