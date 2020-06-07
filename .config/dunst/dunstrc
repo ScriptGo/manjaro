@@ -1,7 +1,20 @@
+################################################################################
+#
+#   ██████╗ ██╗   ██╗███╗   ██╗███████╗████████╗██████╗  ██████╗
+#   ██╔══██╗██║   ██║████╗  ██║██╔════╝╚══██╔══╝██╔══██╗██╔════╝
+#   ██║  ██║██║   ██║██╔██╗ ██║███████╗   ██║   ██████╔╝██║     
+#   ██║  ██║██║   ██║██║╚██╗██║╚════██║   ██║   ██╔══██╗██║     
+#   ██████╔╝╚██████╔╝██║ ╚████║███████║   ██║   ██║  ██║╚██████╗
+#   ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝
+#                                                        
+#
+################################################################################
+
+
 [global]
     frame_width = 2
-    frame_color = "#333333"
-    font = Noto Sans 10
+    frame_color = "#009966"
+    font = Noto Sans 12
 
     # Allow a small subset of html markup:
     #   <b>bold</b>
@@ -49,11 +62,15 @@
     
     # Split notifications into multiple lines if they don't fit into
     # geometry.
-    word_wrap = no
+    word_wrap = yes
     
     # Ignore newlines '\n' in notifications.
     ignore_newline = no
-    
+
+    # Hide duplicate's count and stack them
+
+    stack_duplicates = yes
+    hide_duplicates_count = yes
     
     # The geometry of the window:
     #   [{width}]x{height}[+/-{x}+/-{y}]
@@ -67,7 +84,7 @@
     # the top and down respectevly.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "360x30-960+150"
+    geometry = "300x50-16+51"
     
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
@@ -113,12 +130,12 @@
     # The height of a single line.  If the height is smaller than the
     # font height, it will get raised to the font height.
     # This adds empty space above and under the text.
-    line_height = 0
+    line_height = 3
     
     # Draw a line of "separator_height" pixel height between two
     # notifications.
     # Set to 0 to disable.
-    separator_height = 1
+    separator_height = 2
     
     # Padding between text and separator.
     # padding = 8
@@ -138,13 +155,13 @@
     # Print a notification on startup.
     # This is mainly for error detection, since dbus (re-)starts dunst
     # automatically after a crash.
-    startup_notification = false
+    startup_notification = true
     
     # dmenu path.
     dmenu = /usr/bin/dmenu -p dunst:
     
     # Browser for opening urls in context menu.
-    browser = google-chrome-stable
+    browser = /usr/bin/google-chrome-stable
 
     # Align icons left/right/off
     icon_position = left
@@ -194,21 +211,24 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the '#' and following  would be interpreted as a comment.
-    background="#262626"
-    foreground="#f5f5f5"
+    foreground = "#A7A7A7"
+    background = "#1E1E1E"
+    frame_color = "#FFFF00"
     timeout = 6
 
 
 [urgency_normal]
-    background="#262626" #3a3a3a
-    foreground="#f5f5f5"
-    timeout = 5
+    foreground = "#D9E5D6"
+    background = "#1E1E1E"
+    frame_color = "#FFFF00"
+    timeout = 6
 
 
 [urgency_critical]
-    background="#FF5C57"
-    foreground="#f5f5f5"
-    timeout = 5
+    foreground = "#FF9900"
+    background = "#1E1E1E"
+    frame_color = "#FFFF00"
+    timeout = 8
 
 
 # Every section that isn't one of the above is interpreted as a rules to
@@ -314,3 +334,14 @@
 #     background = "#30AB70"
 #     foreground = "#F67245"
 #
+
+################################################################################
+#
+#   ███████╗ ██████╗ ███████╗
+#   ██╔════╝██╔═══██╗██╔════╝
+#   █████╗  ██║   ██║█████╗  
+#   ██╔══╝  ██║   ██║██╔══╝  
+#   ███████╗╚██████╔╝██║     
+#   ╚══════╝ ╚═════╝ ╚═╝     
+#
+################################################################################

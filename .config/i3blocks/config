@@ -12,12 +12,12 @@ label=🎵
 [time]
 command=date '+%P %H:%M'
 interval=1
-label=<span color="#ffb86c">🕛 </span>
+label=🕛 
 
 [date]
 command=date '+%A %m/%d'
 interval=60
-label=<span color="#8be9fd">📅 </span>
+label=📅 
 
 [volume]
 command=./volume
