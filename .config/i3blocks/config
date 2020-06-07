@@ -1,24 +1,23 @@
-command=~/.config/i3blocks/blocks/$BLOCK_NAME/$BLOCK_NAME
 align=center
 separator=false
 color=#f3f4f5
 separator_block_width=20
 markup=pango
 
-[mediaplayer]
-command=./mocp
+[moc]
+command=./moc
 interval=1
-label=<span color="#8be9fd"> </span>
+label=🎵 
 
 [time]
-command=date '+%H:%M'
+command=date '+%P %H:%M'
 interval=1
-label=<span color="#ffb86c"> </span>
+label=<span color="#ffb86c">🕛 </span>
 
 [date]
 command=date '+%A %m/%d'
 interval=60
-label=<span color="#8be9fd"> </span>
+label=<span color="#8be9fd">📅 </span>
 
 [volume]
 command=./volume

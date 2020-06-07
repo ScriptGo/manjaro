@@ -1,0 +1,27 @@
+#!/bin/bash 
+
+state=$(mocp -Q '%state')
+
+if [ $state = 'STOP' ]
+then
+    media="Stopped."
+else
+    media=$(mocp -Q '%song - %artist [%ct/%tt]')
+fi
+
+echo -e "$media"
+
+# 上一首
+if [[ "${BLOCK_BUTTON}" -eq 1 ]];then
+    mocp -r
+
+# 暂停/播放
+elif [[ "${BLOCK_BUTTON}" -eq 2 ]];then 
+    mocp -G
+
+# 下一首
+elif [[ "${BLOCK_BUTTON}" -eq 3 ]];then
+    mocp -f
+fi
+
+exit 0

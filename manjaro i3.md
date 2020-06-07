@@ -52,7 +52,7 @@ ILoveCandy
 
 ```shell
 sudo pacman -S ttf-jetbrains-mono ttf-sarasa-gothic otf-fira-code noto-fonts-cjk
-sudo pacman -S noto-fonts-emoji awesome-terminal-fonts otf-font-awesome ttf-material-icons
+sudo pacman -S noto-fonts-emoji awesome-terminal-fonts ttg-font-awesome ttf-material-icons
 ```
 2. 安装xdg-user-dirs-gtk
 
@@ -88,7 +88,6 @@ export LANG=zh_CN
 ```shell
 sudo pacman -S xfce4-terminal
 sudo pacman -S i3blocks
-sudo pacman -S polybar
 sudo pacman -S rofi
 ```
 
@@ -139,7 +138,7 @@ sudo pacman -S tldr fd bat exa jq
 ```shell
 sudo pacman -S neofetch fortune-mod cowsay
 sudo pacman -S sl cmatrix
-yay -S tty-clock siji-git
+yay tty-clock siji-git
 ```
 
 ### 输入法
