@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-echo $(date +"%P %H:%M") 
+TIME=$(date +"%P %H:%M")
+echo $TIME

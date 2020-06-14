@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-echo $(date +"%A, %m/%d") 
+DATE=$(date +"%A %m/%d")
+echo $DATE
