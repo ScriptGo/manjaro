@@ -9,19 +9,19 @@ set $mod Mod4
 set $mod1 Mod1
 
 # 字体
-font pango: Noto Sans CJK SC Regular 12
+font pango: Sarasa Mono SC Regular 12
 
-############################# 主题相关 ###########################################
-# Set some nice colors      border     background   text       indicator
+############################# 主题相关 #########################################
+
+# Set some nice colors        border     background   text       indicator
 client.focused              #6272a4    #6272a4      #f8f8f2    #6272a4
 client.unfocused            #282A36    #282A36      #8be9fd    #282A36
 client.focused_inactive     #282A36    #282A36      #50fa7b    #282A36
 client.urgent               #282A36    #282A36      #ff79c6    #282A36
 client.placeholder          #282A36    #282A36      #8be9fd    #282A36
+# client.background           #FFFFFF
 
-client.background           #FFFFFF
-
-################################窗口配置#########################################
+################################窗口配置########################################
 
 # 窗口边框类型 : normal(正常)，none(无边框)，pixel(自定义边框大小)
 # normal除了绘制窗口边框以外，还会显示窗口的标题栏
@@ -46,10 +46,10 @@ hide_edge_borders both
 for_window [class="^.*"] border pixel 0
 for_window [title="^.*"] border pixel 0
 
-# 窗口与窗口之间的间隙，单位是像素
+# 窗口与窗口之间的间隙
 gaps inner 10
-# 窗口与Bar之间的间隙，单位是像素
-# gaps outer 10
+# 窗口与Bar之间的间隙
+gaps outer -9
 
 # gaps horizontal 20
 # gaps vertical 20
@@ -60,8 +60,11 @@ gaps inner 10
 
 # 智能间隙（如果工作区中只有多个容器，则使用间隙）
 # smart_gaps on
+
 # 智能边框（仅当容器不是此工作区中的唯一容器时，才在容器周围绘制边框）
-smart_borders on
+# on 始终激活，no_gaps 仅当屏幕边缘的间隙大小为0时激活
+
+# smart_borders on
 
 
 #  窗口布局(默认平铺)
@@ -144,6 +147,7 @@ bindsym Escape mode "default"
 
 ################################################################################
 ###   浮动窗口
+################################################################################
 
 # 限制浮动窗口大小
 # 值为 -1x -1 时窗口的最大尺寸不受限制
@@ -167,6 +171,7 @@ for_window [window_role="Organizer"] floating enable
 for_window [window_role="toolbox"] floating enable
 for_window [class="File-roller"] floating enable
 for_window [title="File Transfer*"] floating enable border pixel 1
+#for_window [class="foo" instance="bar"] floating enable
 
 # 以下程序使用浮动窗口模式
 
@@ -212,6 +217,72 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 ################################################################################
+### i3bar
+################################################################################
+
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+bar {
+# 透明
+i3bar_command i3bar -t
+status_command i3blocks
+# bar显示位置
+position top
+# bar 高度
+# height 30
+# please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+# tray_output primary
+# tray_output eDP1
+
+# 是否显示系统托盘(默认显示)
+# tray_output none
+
+# 系统托盘图标之间的间隔
+tray_padding 3
+
+# 分隔符
+# separator_symbol ":|:"
+
+# 鼠标绑定
+# bindsym button4 nop
+# bindsym button5 nop
+
+# 字体设置
+font pango: FuraCode Nerd Font Regular 12
+
+# 是否显示工作区按钮(默认显示)
+# workspace_buttons yes|no
+
+# 隐藏工作区名前的数字(默认显示)
+strip_workspace_numbers yes
+# 是否显示绑定模式指示器(默认显示)
+# binding_mode_indicator yes
+
+    colors {
+
+    # bar的颜色
+    background #333333aa
+
+    # 状态栏
+    statusline #FFFFFFaa
+    # 边框颜色
+    # border [color] 
+    # 分隔符
+    separator #3f4751
+
+    #                    border   backgr     text
+    focused_workspace   #7CFC00   #0000FF    #ffffff   #292F34
+    active_workspace    #333333   #FFFF00    #ffffff   #FDF6E3
+    inactive_workspace  #333333   #333333    #888888   #EEE8D5
+    urgent_workspace    #2f343a   #900000    #ffffff   #E5201D
+
+    }
+}
+
+# bar显示方式(手动隐藏/显示)
+bindsym $mod+m bar mode toggle
+
+################################################################################
 ### WorkSpace
 ################################################################################
 
@@ -229,14 +300,14 @@ for_window [urgent=latest] focus
 # 自定义工作区名称
 
 set $WS1   "1:"
-set $WS2   "2:"
+set $WS2   "2:📝"
 set $WS3   "3:"
 set $WS4   "4:"
-set $WS5   "5:"
+set $WS5   "5:🌐"
 set $WS6   "6:"
-set $WS7   "7:"
+set $WS7   "7:⚙️"
 
-# 自动切换工作区
+# 自动切换工作区(当要切换的工作区已经是当前工作区时,切换至上一个工作区)
 workspace_auto_back_and_forth yes
 
 # 快速切换到指定的工作区
@@ -285,6 +356,87 @@ assign [class="VirtualBox Machine"] $WS7
 assign [title="htop"] $WS7
 
 ################################################################################
+### 系统设置
+################################################################################
+
+################################################################################
+#### 声音
+################################################################################
+
+exec -no-startup-id pulseaudio --start &
+
+# 需要配合i3blocks脚本使用
+# 鼠标左键/右键切换输出设备
+# 鼠标滚轮增大/减小音量
+# 鼠标中键静音
+
+bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
+################################################################################
+
+# 重新加载i3配置文件
+bindsym $mod+Shift+c reload
+
+# 重启i3(保留布局/会话，用于升级i3)
+bindsym $mod+Shift+r restart
+
+# 退出i3
+bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m '是否确定退出i3? 这将导致所有工作窗口被关闭.' -b '确定' 'i3-msg exit'"
+
+# 锁屏
+bindsym $mod+9 exec --no-startup-id i3lock -i ~/Pictures/Wallpapers/lock.png
+
+# 系统命令
+bindsym $mod+0 mode "$mode_system"
+set $mode_system 系统 : 注销(L) 🔶 重启(R) 🔴 关机(S) 🔷 取消(Esc)
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit logout, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym s exec --no-startup-id i3exit shutdown, mode "default"
+    bindsym Escape mode "default"
+}
+
+################################################################################
+### 开机自启
+
+#   exec只会在i3初次启动时执行命令,使用exec_always让i3在重启时也执行命令
+#   如果没有添加--no-startup-id表示在启动时鼠标会变成圆圈60秒,并且在执行exec命令的工作区上出现一个窗口(有待考究)
+#   如果命令中有 ; 和 , 则需要把命令用双引号括起来,双引号内部的双引号需要使用 \\ 转义
+#   ; 和 , 的区别在于 ; 分隔的命令列表只有第一个命令匹配前面的条件,而 , 分隔的命令列表全部匹配前面的条件
+
+################################################################################
+
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id pkill compton; compton -b
+exec --no-startup-id nm-applet
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id pamac-tray
+exec --no-startup-id blueman-applet
+
+exec_always --no-startup-id "dunst &"
+
+exec --no-startup-id clipit
+# exec_always --no-startup-id sbxkb
+# exec_always --no-startup-id ff-theme-util
+
+exec --no-startup-id start_conky_maia
+exec_always --no-startup-id fix_xcursor "Azenis"
+exec_always --no-startup-id setcursor "Azenis"
+
+exec_always --no-startup-id fcitx
+exec --no-startup-id variety
+################################################################################
+### 定时任务
+################################################################################
+
+# 自动锁屏
+exec_always --no-startup-id xautolock -time 10 -locker 'i3lock -i ~/Pictures/Wallpapers/lock.png'
+
+# 闲置900秒后黑屏
+exec_always --no-startup-id xset dpms 900
+
+################################################################################
 ### 快速启动
 ################################################################################
 
@@ -306,77 +458,3 @@ bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
-
-################################################################################
-### 开机自启
-################################################################################
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id pkill compton; compton -b
-exec --no-startup-id nm-applet
-exec --no-startup-id xfce4-power-manager
-exec --no-startup-id pamac-tray
-exec --no-startup-id blueman-applet
-
-exec_always --no-startup-id "mpd"
-exec_always --no-startup-id "dunst &"
-
-# exec --no-startup-id clipit
-# exec_always --no-startup-id sbxkb
-# exec_always --no-startup-id ff-theme-util
-
-exec --no-startup-id start_conky_maia
-exec_always --no-startup-id fix_xcursor "Azenis"
-exec_always --no-startup-id setcursor "Azenis"
-
-exec_always --no-startup-id fcitx
-exec --no-startup-id variety
-
-# 自动锁屏
-exec_always --no-startup-id xautolock -time 10 -locker 'i3lock -i ~/Pictures/Wallpapers/lock.png'
-
-# 闲置900秒后黑屏
-exec_always --no-startup-id xset dpms 900
-
-################################################################################
-### 系统设置
-################################################################################
-#### 声音
-################################################################################################
-exec -no-startup-id pulseaudio --start &
-
-# 需要配合i3blocks脚本使用
-# 鼠标左键/右键切换输出设备
-# 鼠标滚轮增大/减小音量
-# 鼠标中间静音
-
-bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
-################################################################################################
-
-# 重新加载i3配置文件
-bindsym $mod+Shift+c reload
-
-# 重启i3(保留布局/会话，用于升级i3)
-bindsym $mod+Shift+r restart
-
-# 退出i3
-bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m '是否确定退出i3? 这将导致所有工作窗口被关闭.' -b '确定' 'i3-msg exit'"
-
-# 锁屏
-bindsym $mod+9 exec --no-startup-id i3lock -i ~/Pictures/Wallpapers/lock.png
-
-#系统命令
-bindsym $mod+0 mode "$mode_system"
-set $mode_system 系统 : 注销(L) 🔶 重启(R) 🔴 关机(S) 🔷 取消(Esc)
-mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit logout, mode "default"
-    bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym s exec --no-startup-id i3exit shutdown, mode "default"
-    bindsym Escape mode "default"
-}
-
-################################################################################
-### i3bar
-################################################################################
-
