@@ -88,7 +88,7 @@ export LANG=zh_CN
 
 ```shell
 sudo pacman -S xfce4-terminal
-sudo pacman -S i3blocks
+sudo pacman -S i3blocks polybar
 sudo pacman -S rofi
 ```
 
