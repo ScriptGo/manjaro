@@ -109,7 +109,7 @@ sudo pacman -S transmission-gtk                       # 下载
 sudo pacman -S unrar xarchiver gtkhash                # 压缩与校验
 sudo pacman -S libreoffice                            # 办公软件
 sudo pacman -S timeshift                              # 系统备份
-sudo pacman -S v2ray qv2ray                           # 科学上网
+sudo pacman -S v2ray qv2ray clash                     # 科学上网
 sudo pacman -S gparted                                # 磁盘管理
 sudo pacman -S gufw                                   # 防火墙
 sudo pacman -S manjaro-settings-manager               # manjaro系统设置工具
