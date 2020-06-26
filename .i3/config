@@ -220,7 +220,7 @@ bindsym $mod+minus scratchpad show
 ### i3bar
 ################################################################################
 
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# exec_always --no-startup-id $HOME/.scripts/launch.sh
 
 bar {
 # 透明

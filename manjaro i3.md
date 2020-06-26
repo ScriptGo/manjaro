@@ -470,7 +470,7 @@ sudo rm -rf /var/lib/docker
 ### VirtualBox
 
 1. 安装virtualBox,选择内核模块
-2. 安装sudo pacman -S linux-headers5.4
+2. 安装sudo pacman -S linux54-headers
 
 安装扩展包
 `yay -S virtualbox-ext-oracle`
